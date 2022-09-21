@@ -1,0 +1,23 @@
+.navbar {
+    background-color: #0006;
+    width: 100%;
+    padding-inline: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 2rem;
+}
+
+h1 a {
+    color: #FFF;
+}
+
+.nav__list {
+    display: flex;
+    gap: 1.5rem;
+    margin-inline: auto;
+}
+
+.nav__link {
+    color: #FFF;
+}
