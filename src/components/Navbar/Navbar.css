@@ -1,11 +1,11 @@
 .navbar {
-    background-color: #0006;
+    background-color: #000E;
     width: 100%;
     padding-inline: 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-block: 2rem;
+    padding-block: 1.5rem;
 }
 
 h1 a {
@@ -18,6 +18,21 @@ h1 a {
     margin-inline: auto;
 }
 
-.nav__link {
+.nav__button {
+    background-color: transparent;
     color: #FFF;
+    padding: .25em .75em;
+    border-radius: .25em;
+    transition: all 350ms;
+
+    border: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.nav__button:hover,
+.nav__button:focus {
+    background-color: #FFF;
+    color: #000;
 }

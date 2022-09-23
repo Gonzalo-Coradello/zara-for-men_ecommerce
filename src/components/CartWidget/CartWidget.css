@@ -1,0 +1,22 @@
+.cart-icon-container {
+    max-width: 40px;
+    cursor: pointer;
+    transition: 350ms;
+}
+
+.cart-icon-container:hover,
+.cart-icon-container:focus {
+    opacity: .5;
+}
+
+.cart-icon {
+    filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(107deg) brightness(100%) contrast(103%);
+}
+
+.cart-counter {
+    color: #FFF;
+    display: block;
+    width: 100%;
+    text-align: right;
+    translate: .5rem -.5rem;
+}

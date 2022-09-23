@@ -1,0 +1,16 @@
+.item-list-container {
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-list-container h2{
+    position: relative;
+}
+
+.item-list-container h2:hover::after {
+    content: "🤎";
+    position: absolute;
+}
