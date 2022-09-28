@@ -1,0 +1,15 @@
+[
+    {
+        "id": 1,
+        "title": "remera parche logo",
+        "category": "remeras",
+        "price": 5900,
+        "pictureURL": "./...",
+        "description": "Camiseta de cuello redondo y manga corta. Aplicación de parche combinado a contraste en pecho.",
+        "colors": {
+            "negro": "#000",
+            "blanco": "#FFF",
+            "marino": "#0E0F27"
+        }
+    }
+]

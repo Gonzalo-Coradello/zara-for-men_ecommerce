@@ -1,38 +1,105 @@
-.navbar {
-    background-color: #000E;
+.nav {
+    position: fixed;
+    top: 0;
     width: 100%;
-    padding-inline: 2rem;
+}
+
+.navbar {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding-block: 1.5rem;
+    margin-top: 1.875rem;
+    margin-inline: 1.875rem;
 }
 
-h1 a {
-    color: #FFF;
-}
-
-.nav__list {
-    display: flex;
-    gap: 1.5rem;
-    margin-inline: auto;
-}
-
-.nav__button {
-    background-color: transparent;
-    color: #FFF;
-    padding: .25em .75em;
-    border-radius: .25em;
-    transition: all 350ms;
-
-    border: none;
+.hamburger {
+    width: min-content;
+    z-index: 50;
     cursor: pointer;
-    -webkit-appearance: none;
-    -moz-appearance: none;
+    transition: opacity 300ms;
 }
 
-.nav__button:hover,
-.nav__button:focus {
-    background-color: #FFF;
-    color: #000;
+.hamburger:hover,
+.hamburger:focus {
+    opacity: .5;
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.nav__menu {
+    position: fixed;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh + 2rem);
+    padding-left: 2.5rem;
+    padding-bottom: 2.5rem;
+    translate: 0 -.01rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    transition: 300ms;
+    z-index: 20;
+}
+
+.nav__menu.active {
+    left: 0;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px 0;
+    transition: all 300ms ease;
+    background-color: #000;
+}
+
+.nav__menu-secondary {
+    position: relative;
+}
+
+.nav__menu .logo {
+    position: fixed;
+    bottom: 2.5rem;
+    right: 1rem;
+}
+
+.nav__item {
+    margin-block: 1.6875rem;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    visibility: hidden;
+    z-index: 10;
+}
+
+.overlay-visible {
+    visibility: visible;
+}
+
+@media screen and (min-width: 900px) {
+    .nav__menu {
+        width: 45%;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .nav__item {
+        margin-left: 4rem;
+    }
 }

@@ -1,0 +1,17 @@
+.item-count {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.counter-row {
+    gap: 2.5rem;
+    align-items: center;
+    border: 1px solid var(--clr-primary);
+    width: fit-content;
+    padding: .5em 1.5em;
+}
+
+.counter-row h4:hover {
+    cursor: default;
+}

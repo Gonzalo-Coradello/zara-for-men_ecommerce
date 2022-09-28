@@ -1,15 +1,18 @@
 .cart-icon-container {
-    max-width: 40px;
     cursor: pointer;
-    transition: 350ms;
+    transition: all 300ms;
+    width: 28px;
+    height: 36px;
+    z-index: 50;
 }
 
 .cart-icon-container:hover,
 .cart-icon-container:focus {
     opacity: .5;
+    scale: 1.1;
 }
 
-.cart-icon {
+.cart-icon.invert {
     filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(107deg) brightness(100%) contrast(103%);
 }
 

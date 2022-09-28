@@ -1,80 +1,229 @@
-/* .App {
-  text-align: center;
+/* Custom properties */
+
+@font-face {
+  font-family: "NewYork";
+  src: url("./fonts/NewYork.ttf"), format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  /* font-family */
+  --ff-primary: "Actor", sans-serif;
+  --ff-landing: "NewYork", "Merriweather", serif;
+  --ff-heading: "League Spartan", sans-serif;
+
+  /* font-weight */
+  --fw-bold: 600;
+  --fw-normal: 400;
+  --fw-light: 200;
+
+  /* font-size */
+  --fs-heading: 2.5rem;
+  --fs-primary: 0.75rem;
+  --fs-secondary: 1.1rem;
+  --fs-bigger: 1.3rem;
+
+  /* colors */
+  --bg-primary: #fff;
+  --bg-secondary: #f1f2f4;
+  --clr-primary: #000;
+  --clr-accent: #011318;
+  --bg-card: rgba(1, 19, 24, 0.72);
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
-
 
 /* Reset */
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-    scroll-behavior: smooth;
-    overflow-x: hidden;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  color: var(--clr-primary);
 }
 
 img {
-    max-width: 100%;
-    display: block;
-    object-fit: cover;
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 a {
-    text-decoration: none;
-    color: #000;
-    transition: all 250ms;
+  text-decoration: none;
+  color: #000;
+  transition: all 250ms;
 }
 
 a:hover,
 a:focus {
+  opacity: 0.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  font-style: normal;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Tipografía */
+html,
+button {
+  font-family: var(--ff-primary);
+  font-size: var(--fs-primary);
+  font-weight: var(--fw-normal);
+  line-height: 18px;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+}
+
+.nav__menu,
+.nav__button {
+  font-size: var(--fs-secondary);
+}
+
+.menu__title {
+  font-family: var(--ff-landing);
+  font-size: clamp(1.3rem, 3vw, 2.5rem);
+}
+
+.shop__title {
+  font-family: var(--ff-heading);
+  font-weight: var(--fw-light);
+  font-size: var(--fs-heading);
+}
+
+.landing {
+  font-family: var(--ff-landing);
+  font-size: var(--fs-heading);
+}
+
+.product__title {
+  text-align: center;
+}
+
+.product__price {
+  font-family: var(--ff-heading);
+  font-weight: var(--fw-normal);
+  font-size: var(--fs-secondary);
+  text-align: center;
+}
+
+.cart,
+.product-detail {
+  font-family: var(--ff-heading);
+}
+
+.cart__title {
+  font-size: 2rem;
+}
+
+.cart__product {
+  font-size: var(--fs-secondary);
+}
+
+.cart__button {
+  font-size: var(--fs-secondary);
+  letter-spacing: 0.15em;
+}
+
+.cart__total h4,
+.detail__price {
+  font-weight: var(--fw-bold);
+}
+
+.cart__eliminar {
+  font-size: var(--fs-primary);
+}
+
+.cart__total,
+.cart__button,
+.detail__button,
+.detail__price,
+.item-count,
+.counter-button {
+  font-size: var(--fs-bigger);
+}
+
+/* Estilos generales */
+html {
+  color: var(--clr-primary);
+  background-color: var(--bg-primary);
+}
+
+.nav__menu {
+  background-color: var(--bg-secondary);
+}
+
+.container {
+  width: 85%;
+  max-width: 1100px;
+  margin-inline: auto;
+}
+
+button {
+  background-color: var(--clr-accent);
+  border: 1px solid var(--clr-accent);
+  color: var(--bg-primary);
+  padding: 0.5em 1.5em;
+  border-radius: 2px;
+  transition: all 350ms;
+}
+
+button:hover {
+  border: 1px solid var(--clr-accent);
+  color: var(--clr-accent);
+  background-color: var(--bg-primary);
+}
+
+.button-secondary {
+  background: none;
+  color: var(--clr-primary);
+  border: none;
+  cursor: pointer;
+  transition: all 250ms;
+  padding: 0;
+}
+
+.button-secondary:hover,
+.button-secondary:focus {
+    background: none;
+    border: none;
     opacity: .5;
 }
 
-img {
-    display: block;
-    object-fit: cover;
-    max-width: 100%;
+.row {
+  display: flex;
+  gap: 1rem;
+}
+
+
+/* Para centrar todo provisoriamente */
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 5rem;
 }
