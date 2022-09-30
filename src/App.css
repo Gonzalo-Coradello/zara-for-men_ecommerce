@@ -216,14 +216,18 @@ button:hover {
   gap: 1rem;
 }
 
+header {
+  height: 6rem;
+}
+
 
 /* Para centrar todo provisoriamente */
 
-main {
+/* main {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
   gap: 5rem;
-}
+} */
