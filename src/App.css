@@ -65,7 +65,7 @@ a {
 
 a:hover,
 a:focus {
-  opacity: 0.5;
+  opacity: 0.9;
 }
 
 h1,
@@ -81,8 +81,8 @@ h6 {
 button {
   border: none;
   cursor: pointer;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+  /* -webkit-appearance: none;
+  -moz-appearance: none; */
 }
 
 /* Tipografía */
@@ -110,6 +110,7 @@ button {
   font-family: var(--ff-heading);
   font-weight: var(--fw-light);
   font-size: var(--fs-heading);
+  line-height: 1;
 }
 
 .landing {
@@ -129,7 +130,8 @@ button {
 }
 
 .cart,
-.product-detail {
+.product-detail,
+.detail__price {
   font-family: var(--ff-heading);
 }
 
@@ -164,6 +166,16 @@ button {
   font-size: var(--fs-bigger);
 }
 
+.loader {
+  font-family: var(--ff-landing);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-heading);
+}
+
+.loader::after {
+  font-weight: var(--fw-normal);
+}
+
 /* Estilos generales */
 html {
   color: var(--clr-primary);
@@ -189,7 +201,8 @@ button {
   transition: all 350ms;
 }
 
-button:hover {
+button:hover,
+button:focus {
   border: 1px solid var(--clr-accent);
   color: var(--clr-accent);
   background-color: var(--bg-primary);
@@ -216,18 +229,7 @@ button:hover {
   gap: 1rem;
 }
 
-header {
-  height: 6rem;
+.item-detail-container,
+.shop {
+  margin-top: 5rem;
 }
-
-
-/* Para centrar todo provisoriamente */
-
-/* main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  gap: 5rem;
-} */

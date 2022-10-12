@@ -1,0 +1,36 @@
+.loader-container {
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader {
+    position: relative;
+}
+
+.loader::after {
+    content: "";
+    position: absolute;
+    animation-name: loader-animation;
+    animation-duration: 2000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes loader-animation {
+    0% {
+        content: "";
+    }
+    33% {
+        content: ".";
+    }
+    66% {
+        content: "..";
+    }
+    99% {
+        content: "...";
+    }
+
+}

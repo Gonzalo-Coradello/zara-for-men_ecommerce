@@ -1,7 +1,7 @@
 .item-count {
-    display: flex;
-    align-items: center;
-    gap: 3rem;
+    display: grid;
+    /* align-items: center; */
+    gap: 2.5rem;
 }
 
 .counter-row {
@@ -14,4 +14,8 @@
 
 .counter-row h4:hover {
     cursor: default;
+}
+
+.detail__price {
+    margin-bottom: 1rem;
 }

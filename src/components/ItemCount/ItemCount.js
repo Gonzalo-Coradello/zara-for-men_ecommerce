@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './ItemCount.css'
 
-const ItemCount = ({ stock, initial, onAdd }) => {
+const ItemCount = ({ stock, initial, onAdd, price }) => {
 
     const [count, setCount] = useState(initial)
     const [currentStock, setCurrentStock] = useState(stock)
@@ -30,8 +30,9 @@ const ItemCount = ({ stock, initial, onAdd }) => {
                 <h4>{count}</h4>
                 <button onClick={sumar} className='counter-button button-secondary'>+</button>
             </div>
+            <h4 className="detail__price">Total: ${price * count}</h4>
             <button onClick={onAdd} className='detail__button'>Agregar al carrito</button>
-            <h4>Stock disponible: {currentStock}</h4>
+            {/* <h4>Stock disponible: {currentStock}</h4> */}
         </div>
     )
 }

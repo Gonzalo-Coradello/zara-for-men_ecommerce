@@ -17,9 +17,11 @@
 }
 
 .cart-counter {
-    color: #FFF;
+    background-color: transparent;
+    color: #000;
     display: block;
     width: 100%;
     text-align: right;
     translate: .5rem -.5rem;
+    mix-blend-mode: difference;
 }

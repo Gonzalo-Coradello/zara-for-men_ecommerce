@@ -1,8 +1,8 @@
-.nav {
+header {
     position: fixed;
     top: 0;
     width: 100%;
-    min-height: 5rem;
+    z-index: 1;
 }
 
 .navbar {
@@ -38,9 +38,11 @@
 
 .nav__menu {
     position: fixed;
+    top: 0;
     left: -100%;
     width: 100%;
-    height: calc(100vh + 2rem);
+    height: 100vh;
+    margin-top: 0;
     padding-left: 2.5rem;
     padding-bottom: 2.5rem;
     translate: 0 -.01rem;
@@ -76,6 +78,11 @@
 
 .nav__item {
     margin-block: 1.6875rem;
+}
+
+.nav-button-active {
+    opacity: .5;
+    cursor: default;
 }
 
 .overlay {

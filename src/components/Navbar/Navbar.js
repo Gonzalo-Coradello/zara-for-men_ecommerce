@@ -2,6 +2,7 @@ import './Navbar.css'
 import CartWidget from '../CartWidget/CartWidget'
 import Logo from '../Logo/Logo'
 import { useState } from 'react'
+import { Link, NavLink } from 'react-router-dom'
 
 
 const Navbar = () => {
@@ -12,18 +13,18 @@ const Navbar = () => {
         <nav className='nav'>
             <div className={openMenu ? 'nav__menu active' : 'nav__menu'}>
                 <ul className='nav__menu-primary'>
-                    <li className='nav__item'><button className='nav__button button-secondary'>REMERAS</button></li>
-                    <li className='nav__item'><button className='nav__button button-secondary'>BUZOS Y CAMPERAS</button></li>
-                    <li className='nav__item'><button className='nav__button button-secondary'>PANTALONES</button></li>
-                    <li className='nav__item'><button className='nav__button button-secondary'>ABRIGOS</button></li>
-                    <li className='nav__item'><button className='nav__button button-secondary'>ACCESORIOS</button></li>
-                    <li className='nav__item'><button className='nav__button button-secondary'>PERFUMES</button></li>
+                    <li className='nav__item'><NavLink to='/products' className={ ({isActive}) => isActive ? 'nav-button-active button-secondary' : 'button-secondary' } onClick={() => setOpenMenu(false)}>TODOS LOS PRODUCTOS</NavLink></li>
+                    <li className='nav__item'><NavLink to='/category/remeras' className={ ({isActive}) => isActive ? 'nav-button-active button-secondary' : 'button-secondary' } onClick={() => setOpenMenu(false)}>REMERAS</NavLink></li>
+                    <li className='nav__item'><NavLink to='/category/buzos' className={({isActive}) => isActive ? 'nav-button-active button-secondary' : 'button-secondary' } onClick={() => setOpenMenu(false)}>BUZOS Y CAMPERAS</NavLink></li>
+                    <li className='nav__item'><NavLink to='/category/pantalones' className={({isActive}) => isActive ? 'nav-button-active button-secondary' : 'button-secondary' } onClick={() => setOpenMenu(false)}>PANTALONES</NavLink></li>
+                    <li className='nav__item'><NavLink to='/category/accesorios' className={({isActive}) => isActive ? 'nav-button-active button-secondary' : 'button-secondary' } onClick={() => setOpenMenu(false)}>ACCESORIOS</NavLink></li>
+                    <li className='nav__item'><NavLink to='/category/perfumes' className={({isActive}) => isActive ? 'nav-button-active button-secondary' : 'button-secondary' } onClick={() => setOpenMenu(false)}>PERFUMES</NavLink></li>
                 </ul>
                 <ul className='nav__menu-secondary'>
                     <li className='nav__item'><button className='nav__button button-secondary'>CONTACTO</button></li>
                     <li className='nav__item'><button className='nav__button button-secondary'>AYUDA</button></li>
                 </ul>
-                <Logo />
+                <Link to='/' onClick={() => setOpenMenu(false)}><Logo /></Link>
             </div>
             <div className='navbar'>
                 <div className={openMenu ? 'hamburger active' : 'hamburger'} 
@@ -34,7 +35,7 @@ const Navbar = () => {
                 </div>
                 <CartWidget />
             </div>
-            <div className={openMenu ? 'overlay overlay-visible' : 'overlay'} />
+            <div className={openMenu ? 'overlay overlay-visible' : 'overlay'} onClick={() => setOpenMenu(false)}/>
         </nav>
     )
 }
