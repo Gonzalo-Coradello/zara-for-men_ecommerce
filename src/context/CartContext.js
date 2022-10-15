@@ -36,12 +36,12 @@ export const CartProvider = ({ children }) => {
         setCart(cartWithoutProduct)
     }
 
-    const updateQuantity = (id, quantity) => {
+    const updateQuantity = (id, qty) => {
         const productToUpdate = cart.find(prod => prod.id === id)
 
         const updatedProd = {
             ...productToUpdate,
-            quantity: productToUpdate.quantity += quantity
+            quantity: productToUpdate.quantity += qty,
         }
     
         setCart(prevCart => prevCart.map(prod => prod.id === id ? updatedProd : prod))
