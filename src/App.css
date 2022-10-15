@@ -118,7 +118,8 @@ button {
   font-size: var(--fs-heading);
 }
 
-.product__title {
+.product__title,
+.detail__buttons {
   text-align: center;
 }
 
@@ -192,7 +193,7 @@ html {
   margin-inline: auto;
 }
 
-button {
+.button {
   background-color: var(--clr-accent);
   border: 1px solid var(--clr-accent);
   color: var(--bg-primary);
@@ -201,8 +202,8 @@ button {
   transition: all 350ms;
 }
 
-button:hover,
-button:focus {
+.button:hover,
+.button:focus {
   border: 1px solid var(--clr-accent);
   color: var(--clr-accent);
   background-color: var(--bg-primary);

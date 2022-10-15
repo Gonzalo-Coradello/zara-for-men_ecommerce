@@ -3,37 +3,39 @@ import './ItemCount.css'
 
 const ItemCount = ({ stock, initial, onAdd, price }) => {
 
-    const [count, setCount] = useState(initial)
+    const [quantity, setQuantity] = useState(initial)
     const [currentStock, setCurrentStock] = useState(stock)
 
     const sumar = () => {
-        if(count < currentStock) {
-            setCount(count + 1)
+        if(quantity < currentStock) {
+            setQuantity(prev  => prev + 1)
         }
     }
 
     const restar = () => {
-        if(count > 1) setCount(count - 1)
+        if(quantity > 1) setQuantity(prev => prev - 1)
     }
 
-    onAdd = () => {
-        if(currentStock > 0 && currentStock - count >= 0) {
-            setCurrentStock(currentStock - count)
-            console.log(`${count} añadido al carrito.`)
+    const validateStock = () => {
+        if(currentStock > 0 && currentStock - quantity >= 0) {
+            setCurrentStock(currentStock - quantity)
+            onAdd(quantity)
         }
       }
 
     return (
-        <div className='item-count'>
-            <div className='row counter-row'>
-                <button onClick={restar} className='counter-button button-secondary'>-</button>
-                <h4>{count}</h4>
-                <button onClick={sumar} className='counter-button button-secondary'>+</button>
+        <>
+            <h4>Cantidad:</h4>
+            <div className='item-count'>
+                <div className='row counter-row'>
+                    <button onClick={restar} className='counter-button button-secondary'>-</button>
+                    <h4>{quantity}</h4>
+                    <button onClick={sumar} className='counter-button button-secondary'>+</button>
+                </div>
+                <h4 className="detail__price">Total: ${price * quantity}</h4>
+                <button onClick={() => validateStock(quantity)} className='button detail__button'>Agregar al carrito</button>
             </div>
-            <h4 className="detail__price">Total: ${price * count}</h4>
-            <button onClick={onAdd} className='detail__button'>Agregar al carrito</button>
-            {/* <h4>Stock disponible: {currentStock}</h4> */}
-        </div>
+        </>
     )
 }
 

@@ -1,8 +1,20 @@
 import './ItemDetail.css'
 import ItemCount from '../ItemCount/ItemCount'
 import { Link } from 'react-router-dom'
+import { useState, useContext } from 'react'
+import { CartContext } from '../../context/CartContext'
 
-const ItemDetail = ({ title, img, colors, price, description, category }) => {
+const ItemDetail = ({ id, title, img, colors, price, description, category }) => {
+
+    const [isAddedToCart, setIsAddedToCart] = useState(false)
+    const {addItem} = useContext(CartContext)
+
+    const handleOnAdd = (quantity) => {
+        const productToAdd = {id, title, img, price, quantity, totalPrice: price * quantity}
+        addItem(productToAdd)
+        setIsAddedToCart(true)
+    }
+
     return (
         <>
         <div className='detail__links'>
@@ -31,17 +43,21 @@ const ItemDetail = ({ title, img, colors, price, description, category }) => {
                 <div className="detail__size">
                     <h4>Talle: </h4>
                     <div className="row">
-                        <button className="size-button">S</button>
-                        <button className="size-button">M</button>
-                        <button className="size-button selected">L</button>
-                        <button className="size-button">XL</button>
+                        <button className="button size-button">S</button>
+                        <button className="button size-button">M</button>
+                        <button className="button size-button selected">L</button>
+                        <button className="button size-button">XL</button>
                     </div>
                 </div>
                 <div className="detail__counter">
-                    <h4>Cantidad:</h4>
-                    <ItemCount stock={6} initial={1} price={price} onAdd />
+                    { !isAddedToCart ? 
+                    <ItemCount stock={6} initial={1} price={price} onAdd={handleOnAdd} /> : 
+                    <div className='detail__buttons'>
+                        <h4>¡Producto agregado al carrito!</h4>
+                        <Link to='/cart' className='button'>Ver carrito</Link>
+                        <Link to='/products' className='button'>Seguir comprando</Link>
+                    </div> }
                 </div>
-                {/* <button className="detail__button">Agregar al carrito</button> */}
             </div>
         </div>
         </>

@@ -84,12 +84,12 @@ const products = [
     },
     {
         id: "8",
-        title: "buzo estampado combinado",
+        title: "buzo color block",
         category: "buzos",
-        price: 14690,
+        price: 11590,
         img: "/images/products/buzos-2_1.jpg",
         stock: 1,
-        description: "",
+        description: "Sudadera de cuello redondo y manga larga. Acabados en rib.",
         colors: []
     },
     {
@@ -122,13 +122,16 @@ const products = [
     },
     {
         id: "11",
-        title: "jersey combinado algodón",
+        title: "buzo coordenadas",
         category: "buzos",
-        price: 9750,
+        price: 11590,
         img: "/images/products/buzos-5_gris-1.jpg",
         stock: 1,
-        description: "",
-        colors: []
+        description: "Sudadera de cuello redondo y manga larga. Estampado de texto combinado a contraste en delantero y manga. Acabados en rib.",
+        colors: [
+            {color: "gris antracita", code: "#0d0a02"},
+            {color: "khaki", code: "#88876f"}
+        ]
     },
     {
         id: "12",
@@ -149,17 +152,13 @@ const products = [
     },
     {
         id: "13",
-        title: "cardigan cierre",
+        title: "buzo estampado paisaje",
         category: "buzos",
-        price: 16460,
-        img: "/images/products/buzos-7_negro-1.jpg",
+        price: 20990,
+        img: "/images/products/buzos-7_1.jpg",
         stock: 1,
-        description: "",
-        colors: [
-            {color: "blanco", code: "#FFF"},
-            {color: "negro", code: "#000"},
-            {color: "marino", code: "#0E0F27"}
-        ]
+        description: "Sudadera de cuello con capucha ajustable y manga larga. Bolsillo frontal tipo canguro. Estampado combinado a contraste en delantero. Acabados en rib.",
+        colors: []
     },
     {
         id: "14",
@@ -340,7 +339,7 @@ export const getProducts = () => {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(products)
-        }, 2000)
+        }, 200)
     })
 }
 
@@ -350,7 +349,7 @@ export const getProductById = (id) => {
             resolve(products.find(prod => {
                 return prod.id === id
             }))
-        }, 2000)
+        }, 200)
     })
 }
 
@@ -358,6 +357,6 @@ export const getProductsByCategory = (categoryId) => {
     return new Promise(resolve => {
         setTimeout(() => {
             resolve(products.filter(prod => prod.category === categoryId))
-        }, 2000)
+        }, 200)
     })
 }
