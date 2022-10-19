@@ -1,10 +1,10 @@
 import './Item.css'
 
-const Item = ({ title, price, img, colors }) => {
+const Item = ({ title, price, images, defaultColor, colors }) => {
 
     return (
     <div className="product">
-        <img className="product__img" src={img} alt={title} />
+        <img className="product__img" src={(images[defaultColor] || images)[0]} alt={title} />
         <h4 className="product__title">{title}</h4>
         <div className="product__colors">
             { colors.map(color => {

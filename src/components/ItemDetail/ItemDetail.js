@@ -1,43 +1,45 @@
 import './ItemDetail.css'
 import ItemCount from '../ItemCount/ItemCount'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useState, useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
+import ItemDetailGallery from '../ItemDetailGallery/ItemDetailGallery'
 
-const ItemDetail = ({ id, title, img, colors, price, description, category }) => {
+const ItemDetail = ({ id, title, images, colors, price, description, category, defaultColor }) => {
 
     const [isAddedToCart, setIsAddedToCart] = useState(false)
+
+    const [selectedColor, setSelectedColor] = useState(defaultColor)
+
     const {addItem} = useContext(CartContext)
 
+    const navigate = useNavigate()
+
     const handleOnAdd = (quantity) => {
-        const productToAdd = {id, title, img, price, quantity}
+        const productToAdd = {id, title, images, price, quantity}
         addItem(productToAdd)
         setIsAddedToCart(true)
     }
 
     return (
         <>
-        <div className='detail__links'>
-            <Link to={`/category/${category}`}>{'>'} Volver a {category}</Link>
-            <Link to='/products'>{'>'} Ver todos los productos</Link>
-        </div>
+        <button className='button-secondary detail__link' onClick={() => navigate(-1)}>Volver</button>
         <div className="item-detail">
-            <div className="item-detail-gallery">
-                <img className="detail__img" src={img} alt={title} />
-            </div>
+            <ItemDetailGallery id={id} images={images} title={title} colors={colors} selectedColor={selectedColor} />
             <div className="item-detail-info">
                 <h2 className="detail__title">{title}</h2>
                 <div className="color-selection">
                     <div className="detail__colors product__colors">
                         { colors.map(color => {
-                            return <div className='detail__color product__color' 
+                            return <div className={color.color === selectedColor ? 'detail__color product__color selected' : 'detail__color product__color'}
                                 key={color.code} 
                                 style={{ 
                                     backgroundColor: color.code, 
-                                    border: color.code === '#FFF' ? '1px solid #000' : null }} />
+                                    border: color.code === '#FFF' ? '1px solid #000' : null }}
+                                onClick={() => setSelectedColor(color.color)} />
                         })}
                     </div>
-                    {/* <h4 className="detail__color-name">Chocolate</h4> */}
+                    <h4 className="detail__color-name">{selectedColor}</h4>
                 </div>
                 <p>{description}</p>
                 <div className="detail__size">

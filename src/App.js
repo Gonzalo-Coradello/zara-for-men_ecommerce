@@ -5,6 +5,7 @@ import LandingPage from './components/LandingPage/LandingPage'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
+import Cart from './components/Cart/Cart';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
           </main>
         </div>
       </BrowserRouter>
+      <Cart />
     </CartProvider>
   );
 }

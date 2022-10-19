@@ -97,7 +97,8 @@ button {
 }
 
 .nav__menu,
-.nav__button {
+.nav__button,
+.detail__link {
   font-size: var(--fs-secondary);
 }
 
