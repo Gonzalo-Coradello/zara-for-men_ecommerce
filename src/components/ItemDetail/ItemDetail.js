@@ -16,7 +16,7 @@ const ItemDetail = ({ id, title, images, colors, price, description, category, d
     const navigate = useNavigate()
 
     const handleOnAdd = (quantity) => {
-        const productToAdd = {id, title, images, price, quantity}
+        const productToAdd = {id, title, images, price, quantity, selectedColor}
         addItem(productToAdd)
         setIsAddedToCart(true)
     }
