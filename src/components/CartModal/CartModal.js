@@ -1,9 +1,10 @@
-import './Cart.css'
+import './CartModal.css'
 import { useContext } from "react"
 import CartItem from '../CartItem/CartItem'
 import { CartContext } from '../../context/CartContext'
+import { Link } from 'react-router-dom'
 
-const Cart = () => {
+const CartModal = ({ setOpenCart }) => {
 
     const { cart, addItem, removeItem } = useContext(CartContext)
 
@@ -13,8 +14,9 @@ const Cart = () => {
                 <div className="cart__products">
                     {cart.map(item => <CartItem {...item} addItem={addItem} removeItem={removeItem} key={item.id.concat(item.selectedColor)} />)}
                 </div>
+                <Link to='/cart' className='button' onClick={() => setOpenCart(false)}>Ir al carrito</Link>
             </>
     )
 }
 
-export default Cart
+export default CartModal

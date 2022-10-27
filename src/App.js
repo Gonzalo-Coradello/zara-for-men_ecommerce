@@ -22,12 +22,12 @@ function App() {
               <Route path='/products/' element={<ItemListContainer />} />
               <Route path='/category/:categoryId' element={ <ItemListContainer />} />
               <Route path='/detail/:productId' element={<ItemDetailContainer />} />
+              <Route path='/cart' element={<Cart />} />
               <Route path='*' element={ <h2>404 NOT FOUND</h2> } />
             </Routes>
           </main>
         </div>
       </BrowserRouter>
-      <Cart />
     </CartProvider>
   );
 }

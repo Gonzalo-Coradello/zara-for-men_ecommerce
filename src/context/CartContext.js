@@ -19,32 +19,32 @@ export const CartProvider = ({ children }) => {
     }, [cart])
 
     const addItem = (productToAdd) => {
-        if(!isInCart(productToAdd.id)) {
+        if(!isInCart(productToAdd)) {
             setCart([...cart, productToAdd])
         }
         else{
-            updateQuantity(productToAdd.id, productToAdd.quantity)
+            updateQuantity(productToAdd.id, productToAdd.quantity, productToAdd.selectedColor)
         }
     }
 
-    const isInCart = (id) => {
-        return cart.some(prod => prod.id === id)
+    const isInCart = ({ id, selectedColor }) => {
+        return cart.some(prod => (prod.id === id && prod.selectedColor === selectedColor))
     }
 
-    const removeItem = (id) => {
-        const cartWithoutProduct = cart.filter(prod => prod.id !== id)
+    const removeItem = (id, color) => {
+        const cartWithoutProduct = cart.filter(prod => (prod.id !== id || prod.selectedColor !== color))
         setCart(cartWithoutProduct)
     }
 
-    const updateQuantity = (id, qty) => {
-        const productToUpdate = cart.find(prod => prod.id === id)
+    const updateQuantity = (id, qty, color) => {
+        const productToUpdate = cart.find(prod => (prod.id === id && prod.selectedColor === color))
 
         const updatedProd = {
             ...productToUpdate,
             quantity: productToUpdate.quantity += qty,
         }
     
-        setCart(prevCart => prevCart.map(prod => prod.id === id ? updatedProd : prod))
+        setCart(prevCart => prevCart.map(prod => (prod.id === id && prod.selectedColor === color) ? updatedProd : prod))
     }
 
     const getQuantity = () => {

@@ -12,8 +12,16 @@
     padding: .5em 1.5em;
 }
 
-.counter-row h4:hover {
+.counter-row h4:hover,
+.cart-counter-row h4:hover,
+.counter-row h4:focus,
+.cart-counter-row h4:focus  {
     cursor: default;
+}
+
+.cart-counter-row {
+    gap: 2.5rem;
+    align-items: center;
 }
 
 .detail__price {

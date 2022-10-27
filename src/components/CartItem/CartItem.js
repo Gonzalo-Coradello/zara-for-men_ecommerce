@@ -1,6 +1,7 @@
+import ItemCount from '../ItemCount/ItemCount'
 import './CartItem.css'
 
-const CartItem = ({ id, title, price, images, quantity, selectedColor, removeItem }) => {
+const CartItem = ({ id, title, price, images, quantity, selectedColor, stock, removeItem }) => {
 
     const productImage = (images[selectedColor] || images)[0]
 
@@ -13,15 +14,17 @@ const CartItem = ({ id, title, price, images, quantity, selectedColor, removeIte
                 <div>
                     <div className="cart__row">
                         <h4 className="cart__product-title">{title}</h4>
-                        <h4 className="cart__product-price">{price}</h4>
+                        <h4 className="cart__product-price">${price * quantity}</h4>
                     </div>
                     <div className="cart__unidades">
-                        <i className="cart__restar">-</i>
+                        <ItemCount stock={stock} initial={quantity} price={price} inCart={true} /> 
+
+                        {/* <i className="cart__restar">-</i>
                         <h4 className="cantidad">{quantity}</h4>
-                        <i className="cart__sumar">+</i>
+                        <i className="cart__sumar">+</i> */}
                     </div>
                 </div>
-                <h4 className="cart__eliminar" onClick={() => removeItem(id)}>Eliminar producto</h4>
+                <h4 className="cart__eliminar" onClick={() => removeItem(id, selectedColor)}>Eliminar producto</h4>
             </div>
         </div>
     )

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './ItemCount.css'
 
-const ItemCount = ({ stock, initial, onAdd, price }) => {
+const ItemCount = ({ stock, initial, onAdd, price, inCart }) => {
 
     const [quantity, setQuantity] = useState(initial)
     const [currentStock, setCurrentStock] = useState(stock)
@@ -24,18 +24,15 @@ const ItemCount = ({ stock, initial, onAdd, price }) => {
       }
 
     return (
-        <>
-            <h4>Cantidad:</h4>
-            <div className='item-count'>
-                <div className='row counter-row'>
-                    <button onClick={restar} className='counter-button button-secondary'>-</button>
-                    <h4>{quantity}</h4>
-                    <button onClick={sumar} className='counter-button button-secondary'>+</button>
-                </div>
-                <h4 className="detail__price">Total: ${price * quantity}</h4>
-                <button onClick={() => validateStock(quantity)} className='button detail__button'>Agregar al carrito</button>
+        <div className='item-count'>
+            <div className={ inCart ? 'row cart-counter-row' : 'row counter-row'}>
+                <button onClick={restar} className='counter-button button-secondary'>-</button>
+                <h4>{quantity}</h4>
+                <button onClick={sumar} className='counter-button button-secondary'>+</button>
             </div>
-        </>
+            <h4 className="detail__price">{!inCart && 'Total:'} ${price * quantity}</h4>
+            {!inCart && <button onClick={() => validateStock(quantity)} className='button detail__button'>Agregar al carrito</button>}
+        </div>
     )
 }
 

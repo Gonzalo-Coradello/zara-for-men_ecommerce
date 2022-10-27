@@ -5,7 +5,7 @@ import { useState, useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
 import ItemDetailGallery from '../ItemDetailGallery/ItemDetailGallery'
 
-const ItemDetail = ({ id, title, images, colors, price, description, category, defaultColor }) => {
+const ItemDetail = ({ id, title, images, colors, price, description, category, defaultColor, stock }) => {
 
     const [isAddedToCart, setIsAddedToCart] = useState(false)
 
@@ -16,7 +16,7 @@ const ItemDetail = ({ id, title, images, colors, price, description, category, d
     const navigate = useNavigate()
 
     const handleOnAdd = (quantity) => {
-        const productToAdd = {id, title, images, price, quantity, selectedColor}
+        const productToAdd = {id, title, images, price, quantity, selectedColor, stock}
         addItem(productToAdd)
         setIsAddedToCart(true)
     }
@@ -36,13 +36,16 @@ const ItemDetail = ({ id, title, images, colors, price, description, category, d
                                 style={{ 
                                     backgroundColor: color.code, 
                                     border: color.code === '#FFF' ? '1px solid #000' : null }}
-                                onClick={() => setSelectedColor(color.color)} />
+                                onClick={() => {
+                                    setSelectedColor(color.color)
+                                    setIsAddedToCart(false)}
+                                } />
                         })}
                     </div>
                     <h4 className="detail__color-name">{selectedColor}</h4>
                 </div>
                 <p>{description}</p>
-                <div className="detail__size">
+                {category !== 'perfumes' && category !== 'accesorios' ? <div className="detail__size">
                     <h4>Talle: </h4>
                     <div className="row">
                         <button className="button size-button">S</button>
@@ -50,10 +53,14 @@ const ItemDetail = ({ id, title, images, colors, price, description, category, d
                         <button className="button size-button selected">L</button>
                         <button className="button size-button">XL</button>
                     </div>
-                </div>
+                </div> :
+                null}
                 <div className="detail__counter">
-                    { !isAddedToCart ? 
-                    <ItemCount stock={6} initial={1} price={price} onAdd={handleOnAdd} /> : 
+                    { !isAddedToCart ?
+                    <>
+                        <h4>Cantidad:</h4> 
+                        <ItemCount stock={stock} initial={1} price={price} onAdd={handleOnAdd} inCart={false} /> 
+                    </> :
                     <div className='detail__buttons'>
                         <h4>¡Producto agregado al carrito!</h4>
                         <Link to='/cart' className='button'>Ver carrito</Link>

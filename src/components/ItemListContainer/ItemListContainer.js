@@ -1,7 +1,7 @@
 import './ItemListContainer.css'
 import ItemList from '../ItemList/ItemList'
 
-const ItemListContainer = ( {saludo} ) => {
+const ItemListContainer = () => {
     return (
         <section className='shop'>
         <div className='container'>
