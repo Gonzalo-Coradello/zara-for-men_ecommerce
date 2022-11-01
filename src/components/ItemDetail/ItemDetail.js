@@ -59,7 +59,8 @@ const ItemDetail = ({ id, title, images, colors, price, description, category, d
                     { !isAddedToCart ?
                     <>
                         <h4>Cantidad:</h4> 
-                        <ItemCount stock={stock} initial={1} price={price} onAdd={handleOnAdd} inCart={false} /> 
+                       {stock !== 0 ? <ItemCount stock={stock} initial={1} price={price} onAdd={handleOnAdd} inCart={false} />
+                       : <h4>No hay stock</h4>} 
                     </> :
                     <div className='detail__buttons'>
                         <h4>¡Producto agregado al carrito!</h4>

@@ -12,17 +12,17 @@ import { getFirestore } from "firebase/firestore"
 
 const firebaseConfig = {
 
-  apiKey: "AIzaSyAvj7DbfZf1SRc1_WZReOfnS2OsaS1pCoA",
+  apiKey: process.env.REACT_APP_apiKey,
 
-  authDomain: "zara-backend.firebaseapp.com",
+  authDomain: process.env.REACT_APP_authDomain,
 
-  projectId: "zara-backend",
+  projectId: process.env.REACT_APP_projectId,
 
-  storageBucket: "zara-backend.appspot.com",
+  storageBucket: process.env.REACT_APP_storageBucket,
 
-  messagingSenderId: "403519244409",
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
 
-  appId: "1:403519244409:web:d09d100aa5bf8c69ec2ca8"
+  appId: process.env.REACT_APP_appId
 
 };
 

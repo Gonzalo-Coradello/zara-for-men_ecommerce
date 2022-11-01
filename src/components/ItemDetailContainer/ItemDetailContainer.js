@@ -2,8 +2,7 @@ import ItemDetail from '../ItemDetail/ItemDetail'
 import { useEffect, useState } from 'react'
 import Loader from '../Loader/Loader'
 import { useParams } from 'react-router-dom'
-import { getDoc, doc } from 'firebase/firestore'
-import { db } from '../../services/firebase'
+import { getProduct } from '../../services/firebase/firestore/products'
 
 const ItemDetailContainer = () => {
 
@@ -18,20 +17,10 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
 
-        const docRef = doc(db, 'products', productId)
-
-        getDoc(docRef)
-            .then(res => {
-                const data = res.data()
-                const productAdapted = { id: res.id, ...data }
-                setProduct(productAdapted)
-            })
-            .catch(error => {
-                console.log(error)
-            })
-            .finally(() => {
-                setLoading(false)
-            })
+       getProduct(productId)
+            .then(product => setProduct(product))
+            .catch(err => console.log(err))
+            .finally(() => setLoading(false))
     }, [productId])
 
     if(loading) {
