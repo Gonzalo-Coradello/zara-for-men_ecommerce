@@ -13,8 +13,6 @@ export const CartProvider = ({ children }) => {
     const [totalQuantity, setTotalQuantity] = useState(0)
     const [total, setTotal] = useState(0)
 
-    console.log(cart)
-
     useEffect(() => {
         const totalQty = getQuantity()
         const totalPrice = getTotal()
@@ -75,8 +73,19 @@ export const CartProvider = ({ children }) => {
         setCart([])
     }
 
+    const updateQuantityFromCart = (id, color, quantity) => {
+        const productToUpdate = cart.find(prod => (prod.id === id && prod.selectedColor === color))
+
+        const updatedProd = {
+            ...productToUpdate,
+            quantity: quantity,
+        }
+    
+        setCart(prevCart => prevCart.map(prod => (prod.id === id && prod.selectedColor === color) ? updatedProd : prod))
+    }
+
     return (
-        <CartContext.Provider value={{ cart, total, totalQuantity, addItem, removeItem, clearCart }}>
+        <CartContext.Provider value={{ cart, total, totalQuantity, addItem, removeItem, clearCart, updateQuantityFromCart }}>
             {children}
         </CartContext.Provider>
     )

@@ -3,11 +3,9 @@ import { useEffect, useState } from 'react'
 import Loader from '../Loader/Loader'
 import { useParams } from 'react-router-dom'
 import { getProduct } from '../../services/firebase/firestore/products'
+import useAsync from '../../hooks/useAsync'
 
 const ItemDetailContainer = () => {
-
-    const [product, setProduct] = useState()
-    const [loading, setLoading] = useState(true)
 
     const { productId } = useParams()
 
@@ -15,16 +13,16 @@ const ItemDetailContainer = () => {
         document.title = loading ? 'Cargando' : `${product.title.toUpperCase()} | ZARA`
     })
 
-    useEffect(() => {
+    const getProductById = () => getProduct(productId)
 
-       getProduct(productId)
-            .then(product => setProduct(product))
-            .catch(err => console.log(err))
-            .finally(() => setLoading(false))
-    }, [productId])
+    const { data: product, error, loading} = useAsync(getProductById, [productId])
 
     if(loading) {
         return <Loader />
+    }
+
+    if(error) {
+        return <h2>{error}</h2>
     }
 
     return (

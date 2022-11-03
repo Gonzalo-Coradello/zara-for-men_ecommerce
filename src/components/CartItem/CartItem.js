@@ -1,8 +1,11 @@
+import { useContext } from 'react'
+import { CartContext } from '../../context/CartContext'
 import ItemCount from '../ItemCount/ItemCount'
 import './CartItem.css'
 
-const CartItem = ({ id, title, price, images, quantity, selectedColor, stock, removeItem, cartRoute }) => {
+const CartItem = ({ id, title, price, images, quantity, selectedColor, stock, cartRoute }) => {
 
+    const { removeItem } = useContext(CartContext)
     const productImage = (images[selectedColor] || images)[0]
 
     return (
@@ -17,15 +20,11 @@ const CartItem = ({ id, title, price, images, quantity, selectedColor, stock, re
                         <h4 className="cart__product-price">Subtotal</h4>
                     </div>
                     <div className="cart__unidades">
-                        { cartRoute ? <ItemCount stock={stock} initial={quantity} price={price} inCart={true} />
+                        { cartRoute ? <ItemCount stock={stock} initial={quantity} price={price} inCart={true} id={id} color={selectedColor} />
                                     : <div>
                                         <h4>x{ quantity }</h4>
                                         <h4>${ price * quantity }</h4>
                                     </div> }
-
-                        {/* <i className="cart__restar">-</i>
-                        <h4 className="cantidad">{quantity}</h4>
-                        <i className="cart__sumar">+</i> */}
                     </div>
                 </div>
                 { cartRoute && <h4 className="cart__eliminar" onClick={() => removeItem(id, selectedColor)}>Eliminar producto</h4> }

@@ -1,15 +1,20 @@
-import { useState } from 'react'
+import { useState, useEffect, useContext } from 'react'
+import { CartContext } from '../../context/CartContext'
 import './ItemCount.css'
 
-const ItemCount = ({ stock, initial, onAdd, price, inCart }) => {
+const ItemCount = ({ stock, initial, onAdd, price, inCart, id, color }) => {
 
+    const { updateQuantityFromCart } = useContext(CartContext)
     const [quantity, setQuantity] = useState(initial)
     const [currentStock, setCurrentStock] = useState(stock)
 
+    useEffect(() => {
+        if(inCart) updateQuantityFromCart(id, color, quantity)
+    }, [quantity])
+    
+
     const sumar = () => {
-        if(quantity < currentStock) {
-            setQuantity(prev  => prev + 1)
-        }
+        if(quantity < currentStock) setQuantity(prev  => prev + 1)
     }
 
     const restar = () => {
