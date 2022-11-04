@@ -11,6 +11,10 @@ const Cart = () => {
     const [ totalPrice, setTotalPrice ] = useState(total)
 
     useEffect(() => {
+        document.title = 'CARRITO DE COMPRAS | ZARA'
+    })
+
+    useEffect(() => {
         cart.length === 0 ? setIsEmpty(true) : setIsEmpty(false)
     }, [cart])
 

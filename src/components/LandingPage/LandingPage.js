@@ -7,10 +7,15 @@ import menuNewCollection from './assets/menu-new-collection.jpg'
 import menuAccesorios from './assets/menu-accesorios.jpg'
 import menuPerfumes from './assets/menu-perfumes.jpg'
 import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
 
 const LandingPage = () => {
 
     const navigate = useNavigate()
+
+    useEffect(() => {
+        document.title = 'ZARA'
+    })
 
     return (
         <section className='landing'>

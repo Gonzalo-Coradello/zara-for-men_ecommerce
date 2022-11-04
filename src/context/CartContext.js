@@ -18,7 +18,7 @@ export const CartProvider = ({ children }) => {
         const totalPrice = getTotal()
         setTotalQuantity(totalQty)
         setTotal(totalPrice)
-    }, [cart])
+    }, [cart]) // eslint-disable-line
 
     const addItem = (productToAdd) => {
         if(!isInCart(productToAdd)) {
@@ -35,6 +35,11 @@ export const CartProvider = ({ children }) => {
 
     const removeItem = (id, color) => {
         const cartWithoutProduct = cart.filter(prod => (prod.id !== id || prod.selectedColor !== color))
+        setCart(cartWithoutProduct)
+    }
+
+    const removeItemFromCheckout = (id) => {
+        const cartWithoutProduct = cart.filter(prod => prod.id !== id)
         setCart(cartWithoutProduct)
     }
 
@@ -85,7 +90,7 @@ export const CartProvider = ({ children }) => {
     }
 
     return (
-        <CartContext.Provider value={{ cart, total, totalQuantity, addItem, removeItem, clearCart, updateQuantityFromCart }}>
+        <CartContext.Provider value={{ cart, total, totalQuantity, addItem, removeItem, clearCart, updateQuantityFromCart, removeItemFromCheckout }}>
             {children}
         </CartContext.Provider>
     )

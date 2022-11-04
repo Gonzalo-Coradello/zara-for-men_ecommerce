@@ -1,14 +1,23 @@
-import { useState, useContext } from "react"
+import { useState, useEffect, useContext } from "react"
 import { CartContext } from "../../context/CartContext"
 import { useNavigate } from "react-router-dom"
 import Form from "../Form/Form"
 import { createOrder } from "../../services/firebase/firestore/orders"
+import { Link } from "react-router-dom"
 
 const Checkout = () => {
 
     const [ loading, setLoading ] = useState(false)
-    const { cart, total, clearCart } = useContext(CartContext)
+    const [ checkoutStatus, setCheckoutStatus ] = useState()
+    const [ orderId, setOrderId ] = useState()
+    const [ OutOfStockList, setOutOfStockList ] = useState()
+    const [ errorMsg, setErrorMsg ] = useState()
+    const { cart, total, clearCart, removeItemFromCheckout } = useContext(CartContext)
     const navigate = useNavigate()
+
+    useEffect(() => {
+        document.title = 'CHECKOUT | ZARA'
+    })
 
     const handleCheckout = ({ name, email, phone }) => {
         setLoading(true)
@@ -27,31 +36,76 @@ const Checkout = () => {
             total: total,
         }
 
-        createOrder(order, cart, finishCheckout, rejectCheckout)
+        createOrder(order, cart, finishCheckout, rejectCheckout, handleError)
     }
 
-    const finishCheckout = () => {
+    const finishCheckout = (order) => {
         clearCart()
 
         setTimeout(() => {
             navigate('/products')
-        }, 3000)
+        }, 5000)
 
+        setCheckoutStatus('success')
         setLoading(false)
+        setOrderId(order)
     }
 
-    const rejectCheckout = () => {
-        console.log('Hay productos que están fuera de stock')
-        setLoading(false)
+    const rejectCheckout = (outOfStock) => {
 
+        outOfStock.forEach(item => {
+            removeItemFromCheckout(item.id)
+        })     
+
+        setCheckoutStatus('outOfStock')
+        setOutOfStockList(outOfStock)
+        setLoading(false)     
     }
 
-
-        // Ver qué hacer cuando algún producto se queda sin stock (outOfStock). Se puede mostrar una notificación y retirar el producto del carrito
-
+    const handleError = (error) => {
+        setCheckoutStatus('error')
+        setErrorMsg(error)
+        setLoading(false)
+    }
 
     if(loading) {
         return <h2>Se está generando la orden</h2>
+    }
+
+    if(checkoutStatus === 'success') {
+        return (
+            <div>
+                <h2>¡Muchas gracias!</h2>
+                <p>Su orden ha sido generada exitosamente</p>
+                <p>ID de la orden: {orderId}</p>
+            </div>
+        )
+    }
+
+    if(checkoutStatus === 'outOfStock') {
+        return (
+            <div>
+                <h2>Los siguientes productos se encuentran fuera de stock:</h2>
+                {OutOfStockList.map(prod => {
+                    return (
+                        <ul key={prod.id}>
+                            <li>{prod.title}</li>
+                        </ul>
+                    )
+                })}
+                <Link to='/cart'>Volver al carrito</Link>
+            </div>
+        )
+    }
+
+    if(checkoutStatus === 'error') {
+        return (
+            <>
+                <h2>Ha ocurrido un error</h2>
+                <p>{errorMsg.toString()}</p>
+            </>
+        )
+        
     }
 
     return (

@@ -10,7 +10,7 @@ const ItemCount = ({ stock, initial, onAdd, price, inCart, id, color }) => {
 
     useEffect(() => {
         if(inCart) updateQuantityFromCart(id, color, quantity)
-    }, [quantity])
+    }, [quantity]) // eslint-disable-line
     
 
     const sumar = () => {

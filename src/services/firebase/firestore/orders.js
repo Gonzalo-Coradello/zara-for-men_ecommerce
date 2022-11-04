@@ -1,7 +1,7 @@
 import { getDocs, addDoc, collection, query, where, documentId, writeBatch, serverTimestamp } from 'firebase/firestore'
 import { db } from ".."
 
-export const createOrder = async (order, cart, finishCheckout, rejectCheckout) => {
+export const createOrder = async (order, cart, finishCheckout, rejectCheckout, handleError) => {
     
     try {
 
@@ -40,15 +40,13 @@ export const createOrder = async (order, cart, finishCheckout, rejectCheckout) =
 
             const orderAdded = await addDoc(orderRef, order) 
 
-            console.log(`El id de su orden es: ${orderAdded.id}`)
-
-            finishCheckout()
+            finishCheckout(orderAdded.id)
 
         } else {
 
-            rejectCheckout()
+            rejectCheckout(outOfStock)
         }
-    } catch (err) {
-        console.log(err)
+    } catch (error) {
+        handleError(error)
     } 
 }
