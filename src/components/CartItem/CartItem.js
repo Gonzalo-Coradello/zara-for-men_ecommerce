@@ -16,7 +16,7 @@ const CartItem = ({ id, title, price, images, quantity, selectedColor, selectedS
             <div className="cart__product-body">
                 <div className='cart-item-body'>
                     <div className="cart__row">
-                        <h4 className="cart__product-title">{title} ({size})</h4>
+                        <h4 className="cart__product-title">{title} {size}</h4>
                         <h4 className="cart__product-price">Subtotal</h4>
                     </div>
                     <div className="cart__row">

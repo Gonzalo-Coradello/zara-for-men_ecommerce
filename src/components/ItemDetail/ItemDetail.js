@@ -1,7 +1,7 @@
 import './ItemDetail.css'
 import ItemCount from '../ItemCount/ItemCount'
 import { Link, useNavigate } from 'react-router-dom'
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import { CartContext } from '../../context/CartContext'
 import ItemDetailGallery from '../ItemDetailGallery/ItemDetailGallery'
 
@@ -11,7 +11,7 @@ const ItemDetail = ({ id, title, images, colors, price, description, category, d
 
     const [selectedColor, setSelectedColor] = useState(defaultColor)
 
-    const [selectedSize, setSelectedSize] = useState('L')
+    const [selectedSize, setSelectedSize] = useState()
 
     const {addItem} = useContext(CartContext)
 
@@ -22,6 +22,12 @@ const ItemDetail = ({ id, title, images, colors, price, description, category, d
         addItem(productToAdd)
         setIsAddedToCart(true)
     }
+
+    useEffect(() => {
+        if(category !== 'perfumes' && category !== 'accesorios') {
+            setSelectedSize('(L)')
+        }
+    }, [])
 
     return (
         <>
@@ -51,14 +57,14 @@ const ItemDetail = ({ id, title, images, colors, price, description, category, d
                     <h4>Talle: </h4>
                     <div className="row">
                         <button 
-                            onClick={() => setSelectedSize('S')} 
-                            className={ selectedSize === 'S' ? 
+                            onClick={() => setSelectedSize('(S)')} 
+                            className={ selectedSize === '(S)' ? 
                             'button size-button selected' :
                             'button size-button'}>S
                         </button>
-                        <button onClick={() => setSelectedSize('M')} className={ selectedSize === 'M' ? 'button size-button selected' : 'button size-button'}>M</button>
-                        <button onClick={() => setSelectedSize('L')} className={ selectedSize === 'L' ? 'button size-button selected' : 'button size-button'}>L</button>
-                        <button onClick={() => setSelectedSize('XL')} className={ selectedSize === 'XL' ? 'button size-button selected' : 'button size-button'}>XL</button>
+                        <button onClick={() => setSelectedSize('(M)')} className={ selectedSize === '(M)' ? 'button size-button selected' : 'button size-button'}>M</button>
+                        <button onClick={() => setSelectedSize('(L)')} className={ selectedSize === '(L)' ? 'button size-button selected' : 'button size-button'}>L</button>
+                        <button onClick={() => setSelectedSize('(XL)')} className={ selectedSize === '(XL)' ? 'button size-button selected' : 'button size-button'}>XL</button>
                     </div>
                 </div> :
                 null}
