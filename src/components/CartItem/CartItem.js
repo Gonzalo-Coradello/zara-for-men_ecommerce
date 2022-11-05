@@ -3,7 +3,7 @@ import { CartContext } from '../../context/CartContext'
 import ItemCount from '../ItemCount/ItemCount'
 import './CartItem.css'
 
-const CartItem = ({ id, title, price, images, quantity, selectedColor, stock, cartRoute }) => {
+const CartItem = ({ id, title, price, images, quantity, selectedColor, selectedSize: size, stock, cartRoute }) => {
 
     const { removeItem } = useContext(CartContext)
     const productImage = (images[selectedColor] || images)[0]
@@ -16,7 +16,7 @@ const CartItem = ({ id, title, price, images, quantity, selectedColor, stock, ca
             <div className="cart__product-body">
                 <div className='cart-item-body'>
                     <div className="cart__row">
-                        <h4 className="cart__product-title">{title}</h4>
+                        <h4 className="cart__product-title">{title} ({size})</h4>
                         <h4 className="cart__product-price">Subtotal</h4>
                     </div>
                     <div className="cart__row">

@@ -11,12 +11,14 @@ const ItemDetail = ({ id, title, images, colors, price, description, category, d
 
     const [selectedColor, setSelectedColor] = useState(defaultColor)
 
+    const [selectedSize, setSelectedSize] = useState('L')
+
     const {addItem} = useContext(CartContext)
 
     const navigate = useNavigate()
 
     const handleOnAdd = (quantity) => {
-        const productToAdd = {id, title, images, price, quantity, selectedColor, stock}
+        const productToAdd = {id, title, images, price, quantity, selectedColor, selectedSize, stock}
         addItem(productToAdd)
         setIsAddedToCart(true)
     }
@@ -48,10 +50,15 @@ const ItemDetail = ({ id, title, images, colors, price, description, category, d
                 {category !== 'perfumes' && category !== 'accesorios' ? <div className="detail__size">
                     <h4>Talle: </h4>
                     <div className="row">
-                        <button className="button size-button">S</button>
-                        <button className="button size-button">M</button>
-                        <button className="button size-button selected">L</button>
-                        <button className="button size-button">XL</button>
+                        <button 
+                            onClick={() => setSelectedSize('S')} 
+                            className={ selectedSize === 'S' ? 
+                            'button size-button selected' :
+                            'button size-button'}>S
+                        </button>
+                        <button onClick={() => setSelectedSize('M')} className={ selectedSize === 'M' ? 'button size-button selected' : 'button size-button'}>M</button>
+                        <button onClick={() => setSelectedSize('L')} className={ selectedSize === 'L' ? 'button size-button selected' : 'button size-button'}>L</button>
+                        <button onClick={() => setSelectedSize('XL')} className={ selectedSize === 'XL' ? 'button size-button selected' : 'button size-button'}>XL</button>
                     </div>
                 </div> :
                 null}
