@@ -1,0 +1,15 @@
+.checkout__body {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 45ch;
+    line-height: 1.6;
+    margin-block: auto;
+}
+
+.checkout__body li {
+    list-style: disc;
+}
+
+.checkout__body a {
+    margin-top: 2rem;
+}

@@ -1,0 +1,11 @@
+.checkout {
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    gap: 2rem;
+    height: 60vh;
+}
+
+.checkout h2 {
+    margin-top: 3rem;
+}

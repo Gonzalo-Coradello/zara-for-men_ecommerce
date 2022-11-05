@@ -180,7 +180,7 @@ button {
 }
 
 .loader::after {
-  font-weight: var(--fw-normal);
+  font-weight: var(--fw-light);
 }
 
 /* Estilos generales */
@@ -189,7 +189,7 @@ html {
   background-color: var(--bg-primary);
 }
 
-section {
+section:not(.landing) {
   margin-top: 5rem;
 }
 

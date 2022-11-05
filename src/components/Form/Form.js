@@ -1,4 +1,6 @@
-import { useState } from "react"
+import './Form.css'
+import { useState } from 'react'
+import { validateFields, validateForm } from './formValidation'
 
 const Form = ({ handleCheckout }) => {
 
@@ -6,159 +8,7 @@ const Form = ({ handleCheckout }) => {
     const [validation, setValidation] = useState({ name: false, email: false, phone: false })
     const [error, setError] = useState(validation)
 
-    const validEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    const validNumber = /^[0-9]*$/
-    const validName = /^[a-zA-Z\s]*$/
-
-    const validateForm = () => {
-        if(validation.name && validation.email && validation.phone) {
-            return true
-        } else return false
-    }
-
-    const validateFields = (e) => {
-
-        if(e.target.name === 'name') {
-            if(!validName.test(formData.name)) {
-                setError(prev => {
-                    return {
-                        ...prev,
-                        name: 'El nombre es inválido'
-                    }
-                })
-                setValidation(prev => {
-                    return {
-                        ...prev,
-                        name: false
-                    }
-                })
-            } else if(formData.name.length < 5) {
-                setError(prev => {
-                    return {
-                        ...prev,
-                        name: 'El nombre debe contener al menos 5 caracteres'
-                    }
-                })
-
-                setValidation(prev => {
-                    return {
-                        ...prev,
-                        name: false
-                    }
-                })
-            } else {
-                setError(prev => {
-                    return {
-                        ...prev,
-                        name: false
-                    }
-                })
-
-                setValidation(prev => {
-                    return {
-                        ...prev,
-                        name: true
-                    }
-                })
-            }
-            
-        }
-
-        if(e.target.name === 'email') {
-            if(!validEmail.test(formData.email)) {
-                setError(prev => {
-                    return {
-                        ...prev,
-                        email: 'El email es inválido'
-                    }
-                })
-
-                setValidation(prev => {
-                    return {
-                        ...prev,
-                        email: false
-                    }
-                })
-            } else {
-                setError(prev => {
-                    return {
-                        ...prev,
-                        email: false
-                    }
-                })
-                setValidation(prev => {
-                    return {
-                        ...prev,
-                        email: true
-                    }
-                })
-            }
-        }
-
-        if(e.target.name === 'phone') {
-            if(!validNumber.test(formData.phone)) {
-                setError(prev => {
-                    return {
-                        ...prev,
-                        phone: 'El número es inválido'
-                    }
-                })
-
-                setValidation(prev => {
-                    return {
-                        ...prev,
-                        phone: false
-                    }
-                })
-            }     
-            else if(formData.phone.length < 8) {
-                setError(prev => {
-                    return {
-                        ...prev,
-                        phone: 'El número debe contener al menos 8 caracteres'
-                    }
-                })
-
-                setValidation(prev => {
-                    return {
-                        ...prev,
-                        phone: false
-                    }
-                })
-            }
-            else {
-                setError(prev => {
-                    return {
-                        ...prev,
-                        phone: false
-                    }
-                })
-                setValidation(prev => {
-                    return {
-                        ...prev,
-                        phone: true
-                    }
-                })
-            }
-        }
-
-        if(e.target.value === '') {
-
-            setError(prev => {
-                return {
-                    ...prev,
-                    [e.target.name]: 'Debe completar todos los campos'
-                }
-            })
-            setValidation(prev => {
-                return {
-                    ...prev,
-                    [e.target.name]: false
-                }
-            })
-        }
-    }
-
+    
     const handleChange = (e) => {
         setFormData(prevFormData => {
             return {
@@ -166,7 +16,7 @@ const Form = ({ handleCheckout }) => {
                 [e.target.name]: e.target.value
             }
         })
-        validateFields(e)
+        validateFields(e, formData, setValidation, setError)
     }
 
     const handleSubmit = (e) => {
@@ -176,19 +26,26 @@ const Form = ({ handleCheckout }) => {
 
     return (
         <>
-            <form>
-                <input type='text' onChange={handleChange} name='name' placeholder='Nombre completo' value={formData.name} />
-                <h4>{error.name}</h4>
-                <input type='email' onChange={handleChange} name='email' placeholder='Email' value={formData.email} />
-                <h4>{error.email}</h4>
-                <input type='tel' onChange={handleChange} name='phone' placeholder='Número de teléfono' value={formData.phone} />
-                <h4>{error.phone}</h4>
+            <form className='form'>
+                <div className='form__field'>
+                    <label>Nombre</label>
+                    <input type='text' onChange={handleChange} name='name' placeholder='John Doe' value={formData.name} />
+                    <h4>{error.name}</h4>
+                </div>
+                <div className='form__field'>
+                    <label>Email</label>
+                    <input type='email' onChange={handleChange} name='email' placeholder='john@doe.com' value={formData.email} />
+                    <h4>{error.email}</h4>
+                </div>
+                <div className='form__field'>
+                    <label>Teléfono</label>
+                    <input type='tel' onChange={handleChange} name='phone' placeholder='12345678' value={formData.phone} />
+                    <h4>{error.phone}</h4>
+                </div>
 
-                {validateForm() && <button onClick={handleSubmit}>Generar orden</button>}
+                {validateForm(validation) && <button onClick={handleSubmit} className='button'>Generar orden</button>}
                 
             </form>
-            <div>
-            </div>
         </>
     ) 
 }
