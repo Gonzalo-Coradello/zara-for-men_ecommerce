@@ -1,5 +1,5 @@
 # ZARA for men
-## _Proyecto final del curso de ReactJS, de Coderhouse_
+## _Proyecto final del curso de ReactJS de Coderhouse_
 
 Este es un e-commerce inspirado en la marca de indumentaria Zara. Desarrollado con React, Firebase y CSS. Cuenta con selección de color y talle y con una galería de imágenes en el detalle de cada producto, además de las funcionalidades típicas de un e-commerce como el carrito de compras. Al realizar una compra, se genera una orden que queda almacenada en el backend.
 
@@ -33,3 +33,4 @@ https://zara-for-men.vercel.app/
 ## Screeenshots
 
 ## GIF
+![](https://github.com/Gonzalo-Coradello/zara/blob/main/zara-ecommerce.gif)
