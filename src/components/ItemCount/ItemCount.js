@@ -29,13 +29,13 @@ const ItemCount = ({ stock, initial, onAdd, price, inCart, id, color }) => {
       }
 
     return (
-        <div className='item-count'>
+        <div className={ inCart ? 'item-count item-count-row' : 'item-count'}>
             <div className={ inCart ? 'row cart-counter-row' : 'row counter-row'}>
                 <button onClick={restar} className='counter-button button-secondary'>-</button>
                 <h4>{quantity}</h4>
                 <button onClick={sumar} className='counter-button button-secondary'>+</button>
             </div>
-            <h4 className="detail__price">{!inCart && 'Total:'} ${price * quantity}</h4>
+            <h4 className={inCart ? 'cart__price' : 'detail__price'}>{!inCart && 'Total:'} ${price * quantity}</h4>
             {!inCart && <button onClick={() => validateStock(quantity)} className='button detail__button'>Agregar al carrito</button>}
         </div>
     )

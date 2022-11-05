@@ -133,7 +133,9 @@ button {
 
 .cart,
 .product-detail,
-.detail__price {
+.detail__price,
+.clear-cart,
+.cart__price {
   font-family: var(--ff-heading);
 }
 
@@ -141,7 +143,9 @@ button {
   font-size: 2rem;
 }
 
-.cart__product {
+.cart__product,
+.clear-cart,
+.cart__price {
   font-size: var(--fs-secondary);
 }
 
@@ -161,6 +165,7 @@ button {
 
 .cart__total,
 .cart__button,
+.cart-modal__button,
 .detail__button,
 .detail__price,
 .item-count,
@@ -169,8 +174,8 @@ button {
 }
 
 .loader {
-  font-family: var(--ff-landing);
-  font-weight: var(--fw-bold);
+  font-family: var(--ff-heading);
+  font-weight: var(--fw-light);
   font-size: var(--fs-heading);
 }
 
@@ -182,6 +187,10 @@ button {
 html {
   color: var(--clr-primary);
   background-color: var(--bg-primary);
+}
+
+section {
+  margin-top: 5rem;
 }
 
 .nav__menu {
@@ -229,9 +238,4 @@ html {
 .row {
   display: flex;
   gap: 1rem;
-}
-
-.item-detail-container,
-.shop {
-  margin-top: 5rem;
 }

@@ -14,7 +14,7 @@ const CartModal = ({ setOpenCart }) => {
                 <div className="cart__products">
                     {cart.map(item => <CartItem {...item} addItem={addItem} removeItem={removeItem} key={item.id.concat(item.selectedColor)} />)}
                 </div>
-                <Link to='/cart' className='button' onClick={() => setOpenCart(false)}>Ir al carrito</Link>
+                <Link to='/cart' className='button cart-modal__button' onClick={() => setOpenCart(false)}>Ir al carrito</Link>
             </>
     )
 }

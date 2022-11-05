@@ -1,7 +1,14 @@
 .item-count {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     /* align-items: center; */
     gap: 2.5rem;
+}
+
+.item-count-row {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .counter-row {

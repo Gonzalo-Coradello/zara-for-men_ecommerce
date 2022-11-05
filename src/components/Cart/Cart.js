@@ -1,45 +1,33 @@
 import './Cart.css'
-import { useContext, useEffect, useState } from "react"
 import CartItem from '../CartItem/CartItem'
-import { CartContext } from '../../context/CartContext'
 import { Link } from 'react-router-dom'
 
-const Cart = () => {
+const Cart = ({ cart, clearCart, totalPrice, isEmpty }) => {
 
-    const { cart, clearCart, total } = useContext(CartContext)
-    const [ isEmpty, setIsEmpty ] = useState(true)
-    const [ totalPrice, setTotalPrice ] = useState(total)
-
-    useEffect(() => {
-        document.title = 'CARRITO DE COMPRAS | ZARA'
-    })
-
-    useEffect(() => {
-        cart.length === 0 ? setIsEmpty(true) : setIsEmpty(false)
-    }, [cart])
-
-    useEffect(() => {
-        setTotalPrice(total)
-    }, [total])
+    if(isEmpty) return (
+        <section className='cart-section'>
+            <h2 className="cart__title">Carrito de compras</h2>
+            <div className='cart__empty'>
+                <h2>El carrito está vacío</h2>
+                <Link to='/products' className='button'>Comenzá a agregar productos</Link>
+            </div>
+        </section>
+    )
 
     return (
-            <>
-                <h2 className="cart__title">Carrito de compras</h2>
-                <div className="cart__products">
-                    {isEmpty ?
-                    <h2>El carrito está vacío</h2> :
-                    cart.map(item => <CartItem {...item} key={item.id.concat(item.selectedColor)} cartRoute={true} />)}
+        <section className='cart-section'>
+            <h2 className="cart__title">Carrito de compras</h2>
+            <div className="cart__products">
+                { cart.map(item => <CartItem {...item} key={item.id.concat(item.selectedColor)} cartRoute={true} />)}
+            </div>
+            <div className='cart__footer'>
+                <div className='cart__row'>
+                    <button onClick={clearCart} className='button-secondary clear-cart'>Vaciar carrito</button>
+                    <h3 className='cart__price'>Total: ${totalPrice}</h3>
                 </div>
-                    {isEmpty ? 
-                    <Link to='/products' className='button'>Comenzá a agregar productos</Link> :
-                    <>
-                        <div>
-                            <button onClick={clearCart} className='button'>Vaciar carrito</button>
-                            <h3>Total: ${totalPrice}</h3>
-                        </div>
-                        <Link to='/checkout' className='button'>Finalizar compra</Link> 
-                    </>}
-            </>
+                <Link to='/checkout' className='button cart__button'>Finalizar compra</Link> 
+            </div>
+        </section>
     )
 }
 
