@@ -31,6 +31,10 @@ $ npm start
 https://zara-for-men.vercel.app/
 
 ## Screeenshots
+![](https://github.com/Gonzalo-Coradello/zara/blob/main/screenshots/zara1.jpg)
+![](https://github.com/Gonzalo-Coradello/zara/blob/main/screenshots/zara2.jpg)
+![](https://github.com/Gonzalo-Coradello/zara/blob/main/screenshots/zara4.jpg)
+![](https://github.com/Gonzalo-Coradello/zara/blob/main/screenshots/zara6.jpg)
 
 ## GIF
 ![](https://github.com/Gonzalo-Coradello/zara/blob/main/zara-ecommerce.gif)
