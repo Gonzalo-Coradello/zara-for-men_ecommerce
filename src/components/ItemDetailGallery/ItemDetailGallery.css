@@ -14,18 +14,17 @@
 }
 
 .gallery__images {
-    flex-basis: 20%;
+    display: flex;
+    flex-basis: 10%;
+    margin-inline: auto;
+    height: 100%;
+    gap: .5rem;
 }
 
-.gallery__images {
-    display: flex;
-    /* width: 2rem; */
-}
 
 .gallery__image-container {
-    border: 1px solid black;
     min-width: 10%;
-    aspect-ratio: 1 / 1;
+    border: 1px solid black;
 }
 
 .gallery__image {
@@ -40,11 +39,11 @@
 
     .gallery__images {
         flex-direction: column;
-        max-height: 100%;
     }
 
-    /* .gallery__image-container {
-        height: 10%;
-        width: 60%;
-    } */
+    .gallery__image-container {
+        display: flex;
+        max-height: 5.5rem;
+        border: none;
+    }
 }

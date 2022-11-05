@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import './ItemDetailGallery.css'
 
-const ItemDetailGallery = ({ id, title, images, selectedColor }) => {
+const ItemDetailGallery = ({ title, images, selectedColor }) => {
     
     const [selectedImage, setSelectedImage] = useState((images[selectedColor] || images)[0])
 
