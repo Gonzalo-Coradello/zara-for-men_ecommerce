@@ -1,18 +1,21 @@
 import './Form.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { validateFields, validateForm } from './formValidation'
 
 const Form = ({ handleCheckout }) => {
 
-    const [formData, setFormData] = useState({ name: '', email: '', phone: '' })
-    const [validation, setValidation] = useState({ name: false, email: false, phone: false })
+    const [formData, setFormData] = useState({ name: '', email: '', emailCheck: '', phone: '' })
+    const [validation, setValidation] = useState({ name: false, email: false, emailCheck: false, phone: false })
     const [error, setError] = useState(validation)
+    const [event, setEvent] = useState()
 
+    useEffect(() => {
+        if(event) validateFields(event, formData, setValidation, setError)
+    }, [formData])
     
     const handleChange = (e) => {
+        setEvent(e)
         
-        validateFields(e, formData, setValidation, setError)
-
         setFormData(prevFormData => {
             return {
                 ...prevFormData,
@@ -38,6 +41,11 @@ const Form = ({ handleCheckout }) => {
                     <label>Email</label>
                     <input type='email' onChange={handleChange} name='email' placeholder='john@doe.com' value={formData.email} />
                     <h4>{error.email}</h4>
+                </div>
+                <div className='form__field'>
+                    <label>Confirmar email</label>
+                    <input type='email' onChange={handleChange} name='emailCheck' placeholder='john@doe.com' value={formData.emailCheck} />
+                    <h4>{error.emailCheck}</h4>
                 </div>
                 <div className='form__field'>
                     <label>Teléfono</label>

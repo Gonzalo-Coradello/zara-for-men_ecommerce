@@ -2,8 +2,8 @@ const validEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@
 const validNumber = /^[0-9]*$/
 const validName = /^[a-zA-Z\s]*$/
 
-export const validateForm = ({ name, email, phone}) => {
-    if(name && email && phone) {
+export const validateForm = ({ name, email, emailCheck, phone}) => {
+    if(name && email && emailCheck && phone) {
         return true
     } else return false
 }
@@ -82,6 +82,37 @@ export const validateFields = (e, formData, setValidation, setError) => {
                 return {
                     ...prev,
                     email: true
+                }
+            })
+        }
+    }
+
+    if(e.target.name === 'emailCheck') {
+        if(formData.emailCheck !== formData.email) {
+            setError(prev => {
+                return {
+                    ...prev,
+                    emailCheck: 'Los correos no coinciden'
+                }
+            })
+
+            setValidation(prev => {
+                return {
+                    ...prev,
+                    emailCheck: false
+                }
+            })
+        } else {
+            setError(prev => {
+                return {
+                    ...prev,
+                    emailCheck: false
+                }
+            })
+            setValidation(prev => {
+                return {
+                    ...prev,
+                    emailCheck: true
                 }
             })
         }
