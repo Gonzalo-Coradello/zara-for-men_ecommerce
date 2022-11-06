@@ -23,7 +23,7 @@ const CheckoutContainer = () => {
     const handleCheckout = ({ name, email, phone }) => {
         setLoading(true)
         const cartMap = cart.map(prod => {
-            const { images: deletedImg, stock: deletedStock, ...restCart } = prod
+            const { images: deletedImg, stock: deletedStock, selectedSize: deletedSize, ...restCart } = prod
             return restCart
         })
 
@@ -57,7 +57,6 @@ const CheckoutContainer = () => {
         const idsArray = outOfStock.map(item => item.id)
         
         removeItemsFromCheckout(idsArray)
-
         setCheckoutStatus('outOfStock')
         setOutOfStockList(outOfStock)
         setLoading(false)     

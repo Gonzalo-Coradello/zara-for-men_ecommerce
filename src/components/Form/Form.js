@@ -10,13 +10,15 @@ const Form = ({ handleCheckout }) => {
 
     
     const handleChange = (e) => {
+        
+        validateFields(e, formData, setValidation, setError)
+
         setFormData(prevFormData => {
             return {
                 ...prevFormData,
                 [e.target.name]: e.target.value
             }
         })
-        validateFields(e, formData, setValidation, setError)
     }
 
     const handleSubmit = (e) => {

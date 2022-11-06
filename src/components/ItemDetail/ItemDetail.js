@@ -53,7 +53,8 @@ const ItemDetail = ({ id, title, images, colors, price, description, category, d
                     <h4 className="detail__color-name">{selectedColor}</h4>
                 </div>
                 <p>{description}</p>
-                {category !== 'perfumes' && category !== 'accesorios' ? <div className="detail__size">
+                {category !== 'perfumes' && category !== 'accesorios' ? 
+                <div className="detail__size">
                     <h4>Talle: </h4>
                     <div className="row">
                         <button 
