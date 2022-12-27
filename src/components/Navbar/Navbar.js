@@ -1,28 +1,26 @@
 import './Navbar.css'
 import CartWidget from '../CartWidget/CartWidget'
 import Logo from '../Logo/Logo'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import CartModal from '../CartModal/CartModal'
 import { getCategories } from '../../services/firebase/firestore/categories'
+import useAsync from '../../hooks/useAsync'
 
 const Navbar = () => {
 
     const [openMenu, setOpenMenu] = useState(false)
     const [openCart, setOpenCart] = useState(false)
-    const [categories, setCategories] = useState([])
 
-    useEffect(() => {
-        getCategories()
-            .then(cat => setCategories(cat))
-    }, [])
+    const asyncFn = () => getCategories()
+    const { data: categories } = useAsync(asyncFn) 
 
     return (
         <nav className='nav'>
             <div className={openMenu ? 'nav__menu active' : 'nav__menu'}>
                 <ul className='nav__menu-primary'>
                     <li className='nav__item'><NavLink to='/products' className={ ({isActive}) => isActive ? 'nav-button-active button-secondary' : 'button-secondary' } onClick={() => setOpenMenu(false)}>TODOS LOS PRODUCTOS</NavLink></li>
-                    { categories.map(cat => (
+                    { categories?.map(cat => (
                         <li key={cat.id} className='nav__item'><NavLink to={`/category/${cat.slug}`} className={({isActive}) => isActive ? 'nav-button-active button-secondary' : 'button-secondary' } onClick={() => setOpenMenu(false)}>{cat.label}</NavLink></li>
                     ))}
                 </ul>

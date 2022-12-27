@@ -25,8 +25,10 @@ const LandingPage = () => {
                     <Logo />
                 </div>
                 <div className='intro__right'>
-                    <h2>COLLECTION</h2>
-                    <h2 className='intro__title-mobile'>NEW COLLECTION</h2>
+                    <div class="intro__right-title">
+                        <h2>COLLECTION</h2>
+                        <h2 className='intro__title-mobile'>NEW COLLECTION</h2>
+                    </div>
                     <div className='intro__gallery'>
                         <img className='gallery-img1' src={galleryImg1} alt='Buzo a rayas blanco, beige y verde' />
                         <img className='gallery-img2' src={galleryImg2} alt='Polera negra y pantalón negro' />
