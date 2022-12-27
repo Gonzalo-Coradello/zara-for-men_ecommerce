@@ -254,6 +254,27 @@
         margin-top: 8rem;
     }
 
+    .intro__gallery img {
+        opacity: 0;
+        animation-name: gallery;
+        animation-duration: 1100ms;
+        animation-timing-function: ease-in;
+        animation-fill-mode: forwards;
+    }
+
+    .gallery-img3 {
+        animation-delay: 500ms;
+    }
+
+    .gallery-img1 {
+        animation-delay: 1000ms;
+    }
+
+    @keyframes gallery {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+
     .intro {
         display: flex;
     }
