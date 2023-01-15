@@ -10,8 +10,8 @@ const CartWidget = () => {
     if(totalQuantity > 0) {
         return (
         <div className="cart-icon-container">
-            <img className="cart-icon invert" src={cartIcon} alt='Carrito de compras' />
-            <span className='cart-counter invert'>{ totalQuantity }</span>
+            <img className="cart-icon" src={cartIcon} alt='Carrito de compras' />
+            <span className='cart-counter'>{ totalQuantity }</span>
         </div>
         )
     }
