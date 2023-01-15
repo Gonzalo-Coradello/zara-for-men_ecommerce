@@ -41,16 +41,6 @@
   padding: 0;
 }
 
-body {
-  min-height: 100vh;
-  min-height: fill-available;
-  min-height: -webkit-fill-available;
-}
-html {
-  min-height: fill-available;
-  height: -webkit-fill-available;
-}
-
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
