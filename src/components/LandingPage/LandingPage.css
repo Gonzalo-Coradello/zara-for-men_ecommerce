@@ -74,6 +74,7 @@
     color: var(--bg-secondary);
     font-size: clamp(.5rem, 10vw, 4rem);
     margin-top: 5vw;
+    scale: 0.85;
 }
 
 .menu {
