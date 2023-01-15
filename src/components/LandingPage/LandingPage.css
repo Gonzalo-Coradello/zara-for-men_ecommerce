@@ -1,7 +1,7 @@
 .intro__left,
 .intro__right {
-    height: 100vh;
-    height: -webkit-fill-available;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
     width: 100vw;
     position: relative;
     overflow: hidden;
@@ -67,8 +67,11 @@
 
 .intro__title-mobile {
     display: block;
+    width: max-content;
+    text-align: center;
+    line-height: 1.25;
     color: var(--bg-secondary);
-    font-size: clamp(1rem, 10vw, 4rem);
+    font-size: clamp(.5rem, 10vw, 4rem);
     margin-top: 5vw;
 }
 
