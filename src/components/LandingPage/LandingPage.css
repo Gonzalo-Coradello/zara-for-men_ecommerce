@@ -160,7 +160,13 @@
 
 .menu__title {
     position: absolute;
-    scale: 0.95;
+    scale: 0.85;
+}
+
+.menu__title:first-of-type {
+    width: min-content;
+    text-align: center;
+    line-height: 1.5;
 }
 
 
@@ -311,6 +317,10 @@
 
     .menu__title {
         scale: 1;
+    }
+
+    .menu__title:first-of-type {
+        width: fit-content;
     }
 }
 
