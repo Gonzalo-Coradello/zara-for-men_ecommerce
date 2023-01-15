@@ -64,7 +64,7 @@
     margin-top: 2rem;
     width: 100%;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 @media screen and (min-width: 900px) {
