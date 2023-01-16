@@ -9,6 +9,8 @@
     flex-direction: column;
     justify-content: space-between;
     min-height: 85vh;
+    min-height: 85svh;
+    padding-top: 2rem;
 }
 
 .cart__title {
