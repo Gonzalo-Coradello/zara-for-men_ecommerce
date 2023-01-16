@@ -94,7 +94,7 @@
     max-width: 700px;
     max-height: 650px;
     padding-block: 4rem;
-    padding-inline: 1rem;
+    padding-inline: .5rem;
 }
 
 .menu__grid .logo {
@@ -118,7 +118,6 @@
 .menu__item-2 {
     grid-column: 2;
     grid-row: 1 / 6;
-    margin-right: clamp(3rem, 10vw, 6rem);
     margin-top: 2rem;
 }
 
@@ -172,6 +171,16 @@
     width: min-content;
     text-align: center;
     line-height: 1.5;
+}
+
+@media screen and (min-width: 450px) {
+    .menu__item-2 {
+        margin-right: clamp(3rem, 10vw, 6rem);
+    }
+
+    .menu__grid {
+        padding-inline: 1rem;
+    }
 }
 
 
