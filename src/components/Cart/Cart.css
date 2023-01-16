@@ -2,6 +2,13 @@
     width: 85%;
     max-width: 800px;
     margin-inline: auto;
+    /* height: 100vh; */
+    /* height: 100svh; */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 85vh;
 }
 
 .cart__title {
@@ -21,6 +28,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100%;
 }
 
 .cart__footer .cart__row {
@@ -31,6 +39,9 @@
     margin-top: .5rem;
     margin-bottom: 2rem;
     font-size: 1.3rem;
+    display: block;
+    width: fit-content;
+    margin-inline: auto;
 }
 
 .cart__empty {

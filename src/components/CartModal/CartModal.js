@@ -9,13 +9,13 @@ const CartModal = ({ setOpenCart }) => {
     const { cart, addItem, removeItem } = useContext(CartContext)
 
     return (
-            <>
+            <div className='cart-modal'>
                 <h2 className="cart__title">Carrito de compras</h2>
                 <div className="cart__products">
                     {cart.map(item => <CartItem {...item} addItem={addItem} removeItem={removeItem} key={item.id.concat(item.selectedColor)} />)}
                 </div>
                 <Link to='/cart' className='button cart-modal__button' onClick={() => setOpenCart(false)}>Ir al carrito</Link>
-            </>
+            </div>
     )
 }
 
