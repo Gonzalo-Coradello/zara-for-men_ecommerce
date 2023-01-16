@@ -144,7 +144,8 @@
 }
 
 .menu__item:hover,
-.menu__item:focus {
+.menu__item:focus,
+.menu__item:active {
     background-color: transparent;
     color: #000;
     opacity: 1;

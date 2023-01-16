@@ -42,10 +42,9 @@ header {
     left: -100%;
     width: 100%;
     height: 100vh;
-    height: 100dvh;
     margin-top: 0;
     padding-left: 2.5rem;
-    padding-bottom: 2.5rem;
+    /* padding-bottom: 2.5rem; */
     translate: 0 -.01rem;
     display: flex;
     flex-direction: column;
@@ -72,9 +71,10 @@ header {
 }
 
 .nav__menu .logo {
-    position: fixed;
-    bottom: 2.5rem;
+    position: absolute;
+    bottom: 0;
     right: 1rem;
+    margin-bottom: 5rem;
 }
 
 .nav__item {
@@ -130,6 +130,10 @@ header {
 @media screen and (min-width: 900px) {
     .nav__menu {
         width: 45%;
+    }
+
+    .nav__menu .logo {
+        margin-bottom: 2.5rem;
     }
 }
 

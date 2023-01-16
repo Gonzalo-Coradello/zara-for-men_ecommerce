@@ -13,6 +13,17 @@ const LandingPage = () => {
 
     const navigate = useNavigate()
 
+    const wait = (time) => {
+        return new Promise(resolve => {
+          setTimeout(resolve, time);
+        });
+      }
+
+    const navigateTo = async url => {
+        await wait(500)
+        navigate(url)
+    }
+
     useEffect(() => {
         document.title = 'ZARA'
     })
@@ -39,15 +50,15 @@ const LandingPage = () => {
             <div className='menu'>
                 <div className='menu__grid'>
                     <Logo />
-                    <div onClick={() => navigate('/products')} className='menu__item menu__item-1'>
+                    <div onClick={() => navigateTo('/products')} className='menu__item menu__item-1'>
                         <h2 className='menu__title'>NEW COLLECTION</h2>
                         <img className='menu__img' src={menuNewCollection} alt='Nueva colección' />
                     </div>
-                    <div onClick={() => navigate('/category/accesorios')} className='menu__item menu__item-2'>
+                    <div onClick={() => navigateTo('/category/accesorios')} className='menu__item menu__item-2'>
                         <h2 className='menu__title'>ACCESORIOS</h2>
                         <img className='menu__img' src={menuAccesorios} alt='Accesorios' />
                     </div>
-                    <div onClick={() => navigate('/category/perfumes')} className='menu__item menu__item-3'>
+                    <div onClick={() => navigateTo('/category/perfumes')} className='menu__item menu__item-3'>
                         <h2 className='menu__title'>PERFUMES</h2>
                         <img className='menu__img' src={menuPerfumes} alt='Perfumes' />
                     </div>
