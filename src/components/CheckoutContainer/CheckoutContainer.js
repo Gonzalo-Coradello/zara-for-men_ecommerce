@@ -1,7 +1,6 @@
 import './CheckoutContainer.css'
 import { useState, useEffect, useContext } from "react"
 import { CartContext } from "../../context/CartContext"
-import { useNavigate } from "react-router-dom"
 import { createOrder } from "../../services/firebase/firestore/orders"
 import Checkout from '../Checkout/Checkout'
 import Form from "../Form/Form"
@@ -14,7 +13,6 @@ const CheckoutContainer = () => {
     const [ OutOfStockList, setOutOfStockList ] = useState()
     const [ errorMsg, setErrorMsg ] = useState()
     const { cart, total, clearCart, removeItemsFromCheckout } = useContext(CartContext)
-    const navigate = useNavigate()
 
     useEffect(() => {
         document.title = 'CHECKOUT | ZARA'

@@ -11,7 +11,7 @@ const Form = ({ handleCheckout }) => {
 
     useEffect(() => {
         if(event) validateFields(event, formData, setValidation, setError)
-    }, [formData])
+    }, [formData, event])
     
     const handleChange = (e) => {
         setEvent(e)
