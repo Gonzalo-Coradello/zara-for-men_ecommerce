@@ -10,6 +10,7 @@ const Checkout = ({ checkoutStatus, orderId, OutOfStockList, errorMsg }) => {
                 <h2>¡Muchas gracias!</h2>
                 <p>Su orden ha sido generada exitosamente</p>
                 <p>ID de la orden: {orderId}</p>
+                <Link to='/products' className='button'>Volver a la tienda</Link>
             </div>
         )
     }

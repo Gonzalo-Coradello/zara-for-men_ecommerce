@@ -43,9 +43,9 @@ const CheckoutContainer = () => {
     const finishCheckout = (order) => {
         clearCart()
 
-        setTimeout(() => {
-            navigate('/products')
-        }, 5000)
+        // setTimeout(() => {
+        //     navigate('/products')
+        // }, 5000)
 
         setCheckoutStatus('success')
         setLoading(false)

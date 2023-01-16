@@ -18,3 +18,8 @@
     margin-inline: auto;
     text-align: center;
 }
+
+.error {
+    text-transform: none;
+    color: #d00;
+}

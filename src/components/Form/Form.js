@@ -35,22 +35,22 @@ const Form = ({ handleCheckout }) => {
                 <div className='form__field'>
                     <label>Nombre</label>
                     <input type='text' onChange={handleChange} name='name' placeholder='John Doe' value={formData.name} />
-                    <h4>{error.name}</h4>
+                    <h4 className='error'>{error.name}</h4>
                 </div>
                 <div className='form__field'>
                     <label>Email</label>
                     <input type='email' onChange={handleChange} name='email' placeholder='john@doe.com' value={formData.email} />
-                    <h4>{error.email}</h4>
+                    <h4 className='error'>{error.email}</h4>
                 </div>
                 <div className='form__field'>
                     <label>Confirmar email</label>
                     <input type='email' onChange={handleChange} name='emailCheck' placeholder='john@doe.com' value={formData.emailCheck} />
-                    <h4>{error.emailCheck}</h4>
+                    <h4 className='error'>{error.emailCheck}</h4>
                 </div>
                 <div className='form__field'>
                     <label>Teléfono</label>
                     <input type='tel' onChange={handleChange} name='phone' placeholder='12345678' value={formData.phone} />
-                    <h4>{error.phone}</h4>
+                    <h4 className='error'>{error.phone}</h4>
                 </div>
 
                 {validateForm(validation) && <button onClick={handleSubmit} className='button'>Generar orden</button>}
