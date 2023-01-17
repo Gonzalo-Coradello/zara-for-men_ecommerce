@@ -175,6 +175,7 @@
 }
 
 .animate {
+    opacity: 0;
     animation-name: onScrollAnimation;
     animation-duration: 1000ms;
     animation-timing-function: ease;
@@ -365,6 +366,5 @@
     .intro__gallery {
         scale: 1.15;
         translate: 0 -1rem;
-        /* margin-bottom: 1rem; */
     }
 }
