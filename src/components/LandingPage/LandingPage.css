@@ -72,6 +72,7 @@
     line-height: 1.25;
     color: var(--bg-secondary);
     font-size: clamp(.5rem, 10vw, 4rem);
+    font-family: var(--ff-landing);
     margin-top: 5vw;
     scale: 0.85;
 }

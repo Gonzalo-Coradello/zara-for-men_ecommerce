@@ -4,6 +4,7 @@ import { CartContext } from "../../context/CartContext"
 import { createOrder } from "../../services/firebase/firestore/orders"
 import Checkout from '../Checkout/Checkout'
 import Form from "../Form/Form"
+import Loader from '../Loader/Loader'
 
 const CheckoutContainer = () => {
 
@@ -67,7 +68,7 @@ const CheckoutContainer = () => {
     }
 
     if(loading) {
-        return <section className='checkout container'><h2>Se está generando la orden</h2></section>
+        return <Loader msg="Se está generando la orden" />
     }
 
     return (

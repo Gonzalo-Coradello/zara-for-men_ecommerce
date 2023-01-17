@@ -20,7 +20,7 @@ const LandingPage = () => {
       }
 
     const navigateTo = async url => {
-        await wait(500)
+        await wait(650)
         navigate(url)
     }
 

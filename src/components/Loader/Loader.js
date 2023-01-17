@@ -1,8 +1,8 @@
 import './Loader.css'
 
-const Loader = () => {
+const Loader = ({msg = "cargando"}) => {
     return <div className='loader-container'>
-        <h2 className='loader'>cargando</h2>
+        <h2 className='loader'>{msg}</h2>
     </div>
 }
 
