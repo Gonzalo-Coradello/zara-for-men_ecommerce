@@ -174,6 +174,24 @@
     line-height: 1.5;
 }
 
+.animate {
+    animation-name: onScrollAnimation;
+    animation-duration: 1000ms;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
+
+@keyframes onScrollAnimation {
+    0% {
+        opacity: 0;
+        scale: 0.5;
+    }
+    100% {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
 @media screen and (min-width: 450px) {
     .menu__item-2 {
         margin-right: clamp(3rem, 10vw, 6rem);

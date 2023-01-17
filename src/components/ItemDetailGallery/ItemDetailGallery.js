@@ -20,7 +20,6 @@ const ItemDetailGallery = ({ title, images, selectedColor }) => {
         setSelectedImage(image)
         const index = (images[selectedColor] || images).indexOf(image)
         const newHeight = 64 * (index + 1) + 6 * (index + 1.5)
-        console.log(newHeight)
         setLineHeight(newHeight)
     }
 

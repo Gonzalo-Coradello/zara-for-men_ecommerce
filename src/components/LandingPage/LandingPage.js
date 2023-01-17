@@ -28,6 +28,29 @@ const LandingPage = () => {
         document.title = 'ZARA'
     })
 
+    useEffect(() => {
+        const scrollTrigger = selector => {
+            const elements = document.querySelectorAll(selector)
+            const elementsArr = Array.from(elements)
+            elementsArr.forEach(el => addObserver(el))
+        }
+            
+        const addObserver = element => {
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        entry.target.classList.add('animate')
+                        observer.unobserve(entry.target)
+                        console.log("Yes")
+                    }
+                })
+            })
+            observer.observe(element)
+        }
+
+        scrollTrigger(".observe")
+    }, [])
+
     return (
         <section className='landing'>
             <div className='intro'>
@@ -38,12 +61,12 @@ const LandingPage = () => {
                 <div className='intro__right'>
                     <div className="intro__right-title">
                         <h2>COLLECTION</h2>
-                        <h2 className='intro__title-mobile'>NEW COLLECTION</h2>
+                        <h2 className='intro__title-mobile observe'>NEW COLLECTION</h2>
                     </div>
                     <div className='intro__gallery'>
-                        <img className='gallery-img1' src={galleryImg1} alt='Buzo a rayas blanco, beige y verde' />
-                        <img className='gallery-img2' src={galleryImg2} alt='Polera negra y pantalón negro' />
-                        <img className='gallery-img3' src={galleryImg3} alt='Remera negra y anteojos de sol' />
+                        <img className='gallery-img1 observe' src={galleryImg1} alt='Buzo a rayas blanco, beige y verde' />
+                        <img className='gallery-img2 observe' src={galleryImg2} alt='Polera negra y pantalón negro' />
+                        <img className='gallery-img3 observe' src={galleryImg3} alt='Remera negra y anteojos de sol' />
                     </div>
                 </div>
             </div>
