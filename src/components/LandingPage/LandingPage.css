@@ -71,10 +71,10 @@
     text-align: center;
     line-height: 1.25;
     color: var(--bg-secondary);
-    font-size: clamp(.5rem, 10vw, 4rem);
+    font-size: clamp(.5rem, 8vw, 4rem);
     font-family: var(--ff-landing);
     margin-top: 5vw;
-    scale: 0.85;
+    margin-inline: 1rem;
 }
 
 .menu {
@@ -165,7 +165,6 @@
 
 .menu__title {
     position: absolute;
-    scale: 0.85;
 }
 
 .menu__title:first-of-type {

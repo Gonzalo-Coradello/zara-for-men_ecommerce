@@ -1,12 +1,5 @@
 /* Custom properties */
 
-@font-face {
-  font-family: "NewYork";
-  src: url("./fonts/NewYork.ttf"), format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-
 :root {
   /* font-family */
   --ff-primary: "Actor", sans-serif;
