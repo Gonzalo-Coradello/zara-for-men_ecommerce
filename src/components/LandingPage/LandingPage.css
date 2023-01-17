@@ -174,8 +174,12 @@
     line-height: 1.5;
 }
 
-.animate {
+.observe {
     opacity: 0;
+    scale: 0.5;
+}
+
+.animate {
     animation-name: onScrollAnimation;
     animation-duration: 1000ms;
     animation-timing-function: ease;
@@ -355,6 +359,10 @@
 
     .menu__title:first-of-type {
         width: fit-content;
+    }
+
+    .observe {
+        scale: 1;
     }
 }
 
