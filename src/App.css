@@ -1,3 +1,12 @@
+@font-face {
+  font-family: "NewYork";
+  src: local("NewYork"), url("./fonts/NewYork.ttf"), format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@import "./fonts/NewYork.ttf";
+
 /* Custom properties */
 
 :root {
