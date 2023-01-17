@@ -36,7 +36,7 @@ const LandingPage = () => {
                     <Logo />
                 </div>
                 <div className='intro__right'>
-                    <div class="intro__right-title">
+                    <div className="intro__right-title">
                         <h2>COLLECTION</h2>
                         <h2 className='intro__title-mobile'>NEW COLLECTION</h2>
                     </div>

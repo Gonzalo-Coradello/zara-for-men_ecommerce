@@ -114,7 +114,8 @@ button {
   line-height: 1;
 }
 
-.landing {
+.landing,
+.intro__title-mobile {
   font-family: var(--ff-landing);
   font-size: var(--fs-heading);
 }
