@@ -5,8 +5,11 @@
 .order__products {
     display: grid;
     max-width: 450px;
-    
     gap: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #000;
+    max-height: 300px;
+    overflow-y: scroll;
 }
 
 .order-summary .cart__product {
@@ -23,6 +26,9 @@
         padding: 2rem;
         background-color: var(--bg-secondary);
         max-height: 350px;
-        overflow-y: scroll;
     }
+
+    /* .order-summary {
+        text-align: right;
+    } */
 }

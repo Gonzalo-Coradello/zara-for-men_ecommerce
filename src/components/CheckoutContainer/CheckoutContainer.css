@@ -18,6 +18,7 @@
 @media screen and (min-width: 900px) {
     .checkout__form {
         flex-direction: row;
+        justify-content: space-between;
         gap: 10rem;
     }
 }

@@ -8,7 +8,7 @@ const OrderSummary = ({cart, total}) => {
             <div className="cart__products order__products">
                 { cart.map(item => <CartItem {...item} key={item.id.concat(item.selectedColor)} />)}
             </div>
-            <h3 className='cart__price order__price'>Total: {total}</h3>
+            <h3 className='cart__price order__price'>Total: ${total}</h3>
         </div>
     )
 }

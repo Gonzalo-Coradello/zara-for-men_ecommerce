@@ -1,6 +1,5 @@
-.form-container {
-    display: grid;
-    gap: 1rem;
+.form-container h2 {
+    margin-bottom: 2rem;
 }
 
 .form {
@@ -34,7 +33,11 @@ form .button {
 }
 
 @media screen and (min-width: 900px) {
-    .form-container {
+    /* .form-container {
+        text-align: left;
+    } */
+
+    .form__field {
         text-align: left;
     }
 }
