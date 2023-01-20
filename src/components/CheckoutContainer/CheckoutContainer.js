@@ -5,6 +5,7 @@ import { createOrder } from "../../services/firebase/firestore/orders"
 import Checkout from '../Checkout/Checkout'
 import Form from "../Form/Form"
 import Loader from '../Loader/Loader'
+import OrderSummary from '../OrderSummary/OrderSummary'
 
 const CheckoutContainer = () => {
 
@@ -77,7 +78,10 @@ const CheckoutContainer = () => {
             <div>
                 { checkoutStatus ?
                 <Checkout checkoutStatus={checkoutStatus} orderId={orderId} OutOfStockList={OutOfStockList} errorMsg={errorMsg} /> :
-                <Form handleCheckout={handleCheckout} />
+                <div className='checkout__form'>
+                    <Form handleCheckout={handleCheckout} />
+                    <OrderSummary cart={cart} total={total} />
+                </div>
                 }
             </div>
         </section>

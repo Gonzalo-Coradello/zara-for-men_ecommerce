@@ -1,17 +1,17 @@
 .cart__row {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 1rem;
-    padding-block: .5rem;
-    gap: 1.5rem;
     width: 100%;
+    margin-bottom: 1rem;
+
+    padding-top: .5rem;
+
 }
 
 .cart__product {
     display: flex;
     align-items: center;
     gap: 1rem;
-    min-height: 6rem;
     background-color: var(--bg-primary);
     padding: .5rem;
 }
@@ -22,16 +22,18 @@
 
 .cart__product-title {
     margin-right: 1.5rem;
+    text-align: left;
 }
 
 .cart__product-img {
     flex-basis: 20%;
     height: 100%;
+    display: grid;
+    align-content: center;
 }
 
 .cart__product-img img {
     width: 100%;
-    max-height: 100%;
     object-fit: cover;
     object-position: top;
 }

@@ -1,0 +1,28 @@
+.order-summary h2 {
+    margin-bottom: 2rem;
+}
+
+.order__products {
+    display: grid;
+    max-width: 450px;
+    
+    gap: 1rem;
+}
+
+.order-summary .cart__product {
+    font-size: 1em;
+    padding: 0;
+}
+
+.order__price {
+    font-weight: var(--fw-bold);
+}
+
+@media screen and (min-width: 900px) {
+    .order__products {
+        padding: 2rem;
+        background-color: var(--bg-secondary);
+        max-height: 350px;
+        overflow-y: scroll;
+    }
+}

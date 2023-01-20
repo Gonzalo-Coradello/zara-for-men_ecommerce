@@ -2,8 +2,8 @@ const validEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@
 const validNumber = /^[0-9]*$/
 const validName = /^[a-zA-Z\s]*$/
 
-export const validateForm = ({ name, email, emailCheck, phone}) => {
-    if(name && email && emailCheck && phone) {
+export const validateForm = ({ name, email, emailCheck, phone, card, code}) => {
+    if(name && email && emailCheck && phone && card && code) {
         return true
     } else return false
 }
@@ -160,6 +160,100 @@ export const validateFields = (e, formData, setValidation, setError) => {
                 return {
                     ...prev,
                     phone: true
+                }
+            })
+        }
+    }
+
+    if(e.target.name === 'card') {
+        if(!validNumber.test(formData.card)) {
+            setError(prev => {
+                return {
+                    ...prev,
+                    card: 'El número es inválido'
+                }
+            })
+
+            setValidation(prev => {
+                return {
+                    ...prev,
+                    card: false
+                }
+            })
+        }     
+        else if(formData.card.length !== 16) {
+            setError(prev => {
+                return {
+                    ...prev,
+                    card: 'El número debe ser de 16 dígitos'
+                }
+            })
+
+            setValidation(prev => {
+                return {
+                    ...prev,
+                    card: false
+                }
+            })
+        }
+        else {
+            setError(prev => {
+                return {
+                    ...prev,
+                    card: false
+                }
+            })
+            setValidation(prev => {
+                return {
+                    ...prev,
+                    card: true
+                }
+            })
+        }
+    }
+
+    if(e.target.name === 'code') {
+        if(!validNumber.test(formData.code)) {
+            setError(prev => {
+                return {
+                    ...prev,
+                    code: 'El código es inválido'
+                }
+            })
+
+            setValidation(prev => {
+                return {
+                    ...prev,
+                    code: false
+                }
+            })
+        }     
+        else if(formData.code.length !== 3) {
+            setError(prev => {
+                return {
+                    ...prev,
+                    code: 'El código debe ser de tres dígitos'
+                }
+            })
+
+            setValidation(prev => {
+                return {
+                    ...prev,
+                    code: false
+                }
+            })
+        }
+        else {
+            setError(prev => {
+                return {
+                    ...prev,
+                    code: false
+                }
+            })
+            setValidation(prev => {
+                return {
+                    ...prev,
+                    code: true
                 }
             })
         }
