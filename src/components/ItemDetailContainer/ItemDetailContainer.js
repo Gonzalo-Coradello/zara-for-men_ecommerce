@@ -1,9 +1,10 @@
 import ItemDetail from '../ItemDetail/ItemDetail'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import Loader from '../Loader/Loader'
 import { useParams } from 'react-router-dom'
 import { getProduct } from '../../services/firebase/firestore/products'
 import useAsync from '../../hooks/useAsync'
+import Footer from '../Footer/Footer'
 
 const ItemDetailContainer = () => {
 
@@ -26,9 +27,14 @@ const ItemDetailContainer = () => {
     }
 
     return (
-        <section className='item-detail-container container'>
-            <ItemDetail { ...product } />
-        </section>
+        <>
+            <main>
+                <section className='item-detail-container container'>
+                    <ItemDetail { ...product } />
+                </section>
+            </main>
+            <Footer />
+        </>
     )
 }
 

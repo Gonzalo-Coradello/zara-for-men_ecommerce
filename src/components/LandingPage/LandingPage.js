@@ -41,7 +41,6 @@ const LandingPage = () => {
                     if(entry.isIntersecting) {
                         entry.target.classList.add('animate')
                         observer.unobserve(entry.target)
-                        console.log("Yes")
                     }
                 })
             })
@@ -52,42 +51,44 @@ const LandingPage = () => {
     }, [])
 
     return (
-        <section className='landing'>
-            <div className='intro'>
-                <div className='intro__left'>
-                    <h2>NEW</h2>
-                    <Logo />
-                </div>
-                <div className='intro__right'>
-                    <div className="intro__right-title">
-                        <h2>COLLECTION</h2>
-                        <h2 className='intro__title-mobile observe'>NEW COLLECTION</h2>
+        <main>
+            <section className='landing'>
+                <div className='intro'>
+                    <div className='intro__left'>
+                        <h2>NEW</h2>
+                        <Logo />
                     </div>
-                    <div className='intro__gallery'>
-                        <img className='gallery-img1 observe' src={galleryImg1} alt='Buzo a rayas blanco, beige y verde' />
-                        <img className='gallery-img2 observe' src={galleryImg2} alt='Polera negra y pantalón negro' />
-                        <img className='gallery-img3 observe' src={galleryImg3} alt='Remera negra y anteojos de sol' />
-                    </div>
-                </div>
-            </div>
-            <div className='menu'>
-                <div className='menu__grid'>
-                    <Logo />
-                    <div onClick={() => navigateTo('/products')} className='menu__item menu__item-1'>
-                        <h2 className='menu__title'>NEW COLLECTION</h2>
-                        <img className='menu__img' src={menuNewCollection} alt='Nueva colección' />
-                    </div>
-                    <div onClick={() => navigateTo('/category/accesorios')} className='menu__item menu__item-2'>
-                        <h2 className='menu__title'>ACCESORIOS</h2>
-                        <img className='menu__img' src={menuAccesorios} alt='Accesorios' />
-                    </div>
-                    <div onClick={() => navigateTo('/category/perfumes')} className='menu__item menu__item-3'>
-                        <h2 className='menu__title'>PERFUMES</h2>
-                        <img className='menu__img' src={menuPerfumes} alt='Perfumes' />
+                    <div className='intro__right'>
+                        <div className="intro__right-title">
+                            <h2>COLLECTION</h2>
+                            <h2 className='intro__title-mobile observe'>NEW COLLECTION</h2>
+                        </div>
+                        <div className='intro__gallery'>
+                            <img className='gallery-img1 observe' src={galleryImg1} alt='Buzo a rayas blanco, beige y verde' />
+                            <img className='gallery-img2 observe' src={galleryImg2} alt='Polera negra y pantalón negro' />
+                            <img className='gallery-img3 observe' src={galleryImg3} alt='Remera negra y anteojos de sol' />
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+                <div className='menu'>
+                    <div className='menu__grid'>
+                        <Logo />
+                        <div onClick={() => navigateTo('/products')} className='menu__item menu__item-1'>
+                            <h2 className='menu__title'>NEW COLLECTION</h2>
+                            <img className='menu__img' src={menuNewCollection} alt='Nueva colección' />
+                        </div>
+                        <div onClick={() => navigateTo('/category/accesorios')} className='menu__item menu__item-2'>
+                            <h2 className='menu__title'>ACCESORIOS</h2>
+                            <img className='menu__img' src={menuAccesorios} alt='Accesorios' />
+                        </div>
+                        <div onClick={() => navigateTo('/category/perfumes')} className='menu__item menu__item-3'>
+                            <h2 className='menu__title'>PERFUMES</h2>
+                            <img className='menu__img' src={menuPerfumes} alt='Perfumes' />
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
     )
 }
 

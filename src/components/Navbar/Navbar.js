@@ -25,8 +25,7 @@ const Navbar = () => {
                     ))}
                 </ul>
                 <ul className='nav__menu-secondary'>
-                    <li className='nav__item'><button className='nav__button button-secondary'>CONTACTO</button></li>
-                    <li className='nav__item'><button className='nav__button button-secondary'>AYUDA</button></li>
+                    <li className='nav__item'><NavLink to='/about' className={ ({isActive}) => isActive ? 'nav-button-active button-secondary' : 'button-secondary' } onClick={() => setOpenMenu(false)}>SOBRE NOSOTROS</NavLink></li>
                 </ul>
                 <Link to='/' onClick={() => setOpenMenu(false)}><Logo /></Link>
             </div>

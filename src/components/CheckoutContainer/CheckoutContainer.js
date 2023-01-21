@@ -6,6 +6,7 @@ import Checkout from '../Checkout/Checkout'
 import Form from "../Form/Form"
 import Loader from '../Loader/Loader'
 import OrderSummary from '../OrderSummary/OrderSummary'
+import Footer from '../Footer/Footer'
 
 const CheckoutContainer = () => {
 
@@ -73,18 +74,23 @@ const CheckoutContainer = () => {
     }
 
     return (
-        <section className="checkout container">
-            <h2>Checkout</h2>
-            <div>
-                { checkoutStatus ?
-                <Checkout checkoutStatus={checkoutStatus} orderId={orderId} OutOfStockList={OutOfStockList} errorMsg={errorMsg} /> :
-                <div className='checkout__form'>
-                    <Form handleCheckout={handleCheckout} />
-                    <OrderSummary cart={cart} total={total} />
-                </div>
-                }
-            </div>
-        </section>
+        <>
+            <main>
+                <section className="checkout container">
+                    <h2>Checkout</h2>
+                    <div>
+                        { checkoutStatus ?
+                        <Checkout checkoutStatus={checkoutStatus} orderId={orderId} OutOfStockList={OutOfStockList} errorMsg={errorMsg} /> :
+                        <div className='checkout__form'>
+                            <Form handleCheckout={handleCheckout} />
+                            <OrderSummary cart={cart} total={total} />
+                        </div>
+                        }
+                    </div>
+                </section>
+            </main>
+            <Footer />
+        </>
     )
     
     

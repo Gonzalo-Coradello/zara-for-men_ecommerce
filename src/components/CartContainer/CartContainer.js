@@ -21,9 +21,7 @@ const CartContainer = () => {
     }, [total])
 
     return (
-        <div className='cart-container'>
-            <Cart cart={cart} clearCart={clearCart} totalPrice={totalPrice} isEmpty={isEmpty} />
-        </div>
+        <Cart cart={cart} clearCart={clearCart} totalPrice={totalPrice} isEmpty={isEmpty} />
     )
 }
 

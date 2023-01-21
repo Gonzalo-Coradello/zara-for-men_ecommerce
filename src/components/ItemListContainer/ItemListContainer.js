@@ -1,10 +1,11 @@
 import './ItemListContainer.css'
 import ItemList from '../ItemList/ItemList'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import Loader from '../Loader/Loader'
 import { useParams } from 'react-router-dom'
 import { getProducts } from '../../services/firebase/firestore/products'
 import useAsync from '../../hooks/useAsync'
+import Footer from '../Footer/Footer'
 
 const ItemListContainer = () => {
 
@@ -29,11 +30,14 @@ const ItemListContainer = () => {
     }
     
     return (
-        <section className='shop'>
-            <div className='container'>
-                <ItemList products={products} />
-            </div>
-        </section>
+        <>
+            <section className='shop'>
+                <div className='container'>
+                    <ItemList products={products} />
+                </div>
+            </section>
+            <Footer />
+        </>
     )
 }
 
