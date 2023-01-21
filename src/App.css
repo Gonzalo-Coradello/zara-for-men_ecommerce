@@ -105,6 +105,7 @@ button {
 .menu__title {
   font-family: var(--ff-landing);
   font-size: clamp(1.3rem, 3vw, 2.5rem);
+  font-weight: 400;
 }
 
 .shop__title {
@@ -117,6 +118,7 @@ button {
 .landing {
   font-family: var(--ff-landing);
   font-size: var(--fs-heading);
+  font-weight: 400;
 }
 
 .product__title,

@@ -75,6 +75,7 @@
     font-family: var(--ff-landing);
     margin-top: 5vw;
     margin-inline: 1rem;
+    font-weight: 400;
 }
 
 .menu {
