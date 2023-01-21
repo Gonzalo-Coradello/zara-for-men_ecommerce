@@ -10,7 +10,7 @@
 :root {
   /* font-family */
   --ff-primary: "Actor", sans-serif;
-  --ff-landing: "NewYork", "Merriweather", serif;
+  --ff-landing: "NewYork", "Noto Serif Display", "Merriweather", serif;
   --ff-heading: "League Spartan", sans-serif;
 
   /* font-weight */
