@@ -1,0 +1,23 @@
+.about h1 {
+    margin-top: 10rem;
+}
+
+.about-text {
+    display: grid;
+    gap: 1rem;
+    margin-block: 1.5rem;
+}
+
+.about-text p {
+    max-width: 75ch;
+    line-height: 2;
+}
+
+.about-text a {
+    text-decoration: underline;
+    transition: opacity 300ms;
+}
+
+.about-text a:hover {
+    opacity: .5;
+}
