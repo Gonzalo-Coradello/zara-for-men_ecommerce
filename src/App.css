@@ -183,6 +183,18 @@ button {
   font-weight: var(--fw-light);
 }
 
+.about {
+  font-family: 'Inter', sans-serif;
+  font-weight: 200;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 1.2rem;
+}
+
+.about h1 {
+  font-weight: 400;
+}
+
 /* Estilos generales */
 html {
   color: var(--clr-primary);
