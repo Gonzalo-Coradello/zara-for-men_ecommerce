@@ -64,7 +64,7 @@ const Form = ({ handleCheckout }) => {
                     <h4 className='error'>{error.code}</h4>
                 </div>
 
-                <div>{validateForm(validation) && <button onClick={handleSubmit} className='button'>Generar orden</button>}</div>
+                <button onClick={handleSubmit} className={validateForm(validation) ? 'button' : 'button disabled'} disabled={validateForm(validation) ? false : true}>Generar orden</button>
                 
             </form>
         </div>

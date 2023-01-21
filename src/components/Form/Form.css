@@ -32,11 +32,17 @@ form .button {
     margin-bottom: 2rem;
 }
 
-@media screen and (min-width: 900px) {
-    /* .form-container {
-        text-align: left;
-    } */
+.disabled {
+    cursor: not-allowed;
+    opacity: .7;
+}
 
+.disabled:hover {
+    background-color: var(--clr-primary);
+    color: var(--bg-primary);
+}
+
+@media screen and (min-width: 900px) {
     .form__field {
         text-align: left;
     }

@@ -4,7 +4,7 @@
 
 .order__products {
     display: grid;
-    max-width: 450px;
+    max-width: 400px;
     gap: 1rem;
     padding: 0.5rem;
     border: 1px solid #000;
@@ -23,8 +23,6 @@
 
 @media screen and (min-width: 900px) {
     .order__products {
-        padding: 2rem;
-        background-color: var(--bg-secondary);
         max-height: 350px;
     }
 
