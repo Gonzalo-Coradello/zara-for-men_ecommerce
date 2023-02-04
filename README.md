@@ -57,6 +57,9 @@ $ npm start
 ## Deploy
 https://zara-for-men.vercel.app/
 
+## Credits
+Design: [Talia Laborde](https://www.linkedin.com/in/talia-laborde/)
+
 ## Screeenshots
 ![](https://github.com/Gonzalo-Coradello/zara-for-men_ecommerce/blob/main/screenshots/zara1.jpg)
 ![](https://github.com/Gonzalo-Coradello/zara-for-men_ecommerce/blob/main/screenshots/zara2.jpg)
